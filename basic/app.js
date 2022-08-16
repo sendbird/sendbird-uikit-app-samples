@@ -19,7 +19,6 @@ app.post('/basic-chat-app', async (req, res) => {
     }
 
     if (req.body.trigger === 'button') {
-        console.log(req.body);
         const markdownAppData = sendbird.constructMarkdownAppWithoutButton(req.body.message);
         await sendbird.updateUserMessage(markdownAppData, req.body.messageId, req.body.channelUrl, req.body.message);
         return res.sendStatus(200);
