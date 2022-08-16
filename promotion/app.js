@@ -10,7 +10,7 @@ app.use(cors());
 
 const sendbird = new Sendbird();
 
-app.post('/promotion-app', async (req, res) => {
+app.post('/app', async (req, res) => {
 
 
 
