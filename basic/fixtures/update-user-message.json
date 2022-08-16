@@ -1,0 +1,47 @@
+[
+    {
+        "scope": "https://api-b15e5141-d0dc-4b67-8237-9b769f6f3ee5.sendbird.com:443",
+        "method": "PUT",
+        "path": "/v3/group_channels/sendbird_group_channel_185112538_8ada9ca637b49b7b793f89f6010c89a4aaa4abc7/messages/4237280643",
+        "body": {
+            "message": "this is some bold text",
+            "message_type": "MESG",
+            "data": "{\"sb_app\":{\"name\":\"basic-chat-app\",\"isDraft\":false,\"ui\":\"this is some bold text\"}}"
+        },
+        "status": 200,
+        "response": [
+            "1f8b08000000000000036d514daf9b3010fc2b91cf8904e19bf3ab7aeaa9c7c793b5e025580f305ddb51a328ffbd6b08e9872a815866c6b3bbe3bb70b705452dbe7df9fe551cc584d6c205a556a24ecf49712ea33c4d5e380bdda0ed811f6b263cb4665407873f1d1f55e080f97b236c2b61591a51733dc3845c35a205abbb5337803bade4b111dabe11f48ee91e468b8c78bd6affdfa3118f07f7e9bc756692cfb919e8f5c8d5fdc114213854129ca8e33cabd22c3d57e7a42c8fc25b2416addf753b617156ad26c50e0b9960223d8d9b25e10faf09257837c8de90dc157a5a53d8e615b3ee3ec3827fbb4de8600b23cc44264c27cc8204ce10f3da4ae89cbe32ecc863987b8079c6f1d97fb79217327e913b1997591c9fb3a49425db571de449d1a6555bb44595f465d5e7511c7565052900bf6d57702fbfa83f12c9a33c4bab28c98becf7555b4f577d85515aecccacaca84f716067a7cdcc4743620cbe7fbcc03dfb8d390acbc9ccee95ca6e4ce89efac178da6cf7659e0eeb86ece008663b4210db2db6102210c1ed9f5ff98937694885db0c2371988493b9a27af567c82c72b2972ddf709b21efd5fafde3f10bc74a14b0f3020000"
+        ],
+        "rawHeaders": [
+            "Date",
+            "Tue, 16 Aug 2022 13:01:43 GMT",
+            "Content-Type",
+            "application/json",
+            "Transfer-Encoding",
+            "chunked",
+            "Connection",
+            "close",
+            "Server",
+            "nginx",
+            "Vary",
+            "Accept-Encoding",
+            "Request-Id",
+            "838de5e0-7d46-4dec-8e56-ec2f0d4001f5",
+            "X-Frame-Options",
+            "SAMEORIGIN",
+            "X-RateLimit-Limit",
+            "20;w=1",
+            "X-RateLimit-Remaining",
+            "19",
+            "X-RateLimit-Reset",
+            "0.049999952316284",
+            "X-RateLimit-RetryAfter",
+            "0.0",
+            "Access-Control-Allow-Origin",
+            "*",
+            "Content-Encoding",
+            "gzip"
+        ],
+        "responseIsBinary": false
+    }
+]
