@@ -8,25 +8,46 @@ let messageApi = new SendbirdPlatformSdk.MessageApi();
 messageApi.apiClient.basePath = `https://api-${process.env.APP_ID}.sendbird.com`;
 
 class Sendbird {
-    constructMarkdownPromotionalMessage(message) {
+    constructMarkdownPromotionalMessage() {
         return `![alt promotion hero image](https://scout-poc.pages.dev/static/media/banner-renew.fa578f5b.png#hero)
         Renew today and get 20% off annual subscription! That's free for 2 months.
         [:button renew]()`;
     }
 
 
-    async sendBotMessage(markdownAppData, userId, channelUrl, message) {
-        let apiToken = process.env.API_TOKEN;
+    async sendBotMessage(markdownAppData, channelUrl) {
+        const botUserid = process.env.BOT_ID;
+        const sendBotSMessageData = new SendbirdPlatformSdk.SendBotSMessageData();
+        sendBotSMessageData.channel_url = channelUrl;
+        sendBotSMessageData.message = markdownAppData;
+        const opts = {
+            'sendBotSMessageData': sendBotSMessageData
+        };
+        try {
+            const response = await botApi.sendBotsMessage(process.env.API_TOKEN, botUserid, opts)
+            return [response, null];
+        } catch (error) {
+            return [null, error];
+        }
 
 
     }
 
-    async createBot() {
+    async botJoinChannel(channelUrl) {
 
-    }
 
-    async botJoinChannel() {
-
+        const botUserid = process.env.BOT_ID;
+        const joinChannelsData = new SendbirdPlatformSdk.JoinChannelsData();
+        joinChannelsData.channel_urls = [channelUrl];
+        const opts = {
+            'joinChannelsData': joinChannelsData
+        };
+        try {
+            const response = await botApi.joinChannels(process.env.API_TOKEN, botUserid, opts)
+            return [response, null];
+        } catch (error) {
+            [null, error];
+        }
     }
 
 }

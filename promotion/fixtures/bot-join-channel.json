@@ -1,0 +1,52 @@
+[
+    {
+        "scope": "https://api-4ae6adf2-29f8-447d-a0d5-1c22184fdb3f.sendbird.com:443",
+        "method": "POST",
+        "path": "/v3/bots/1/channels",
+        "body": {
+            "channel_urls": [
+                "promotion-b8a4ef7e-7b62-46f0-81a7-0592c2b1a95e"
+            ]
+        },
+        "status": 200,
+        "response": {
+            "channels": [
+                {
+                    "channel_url": "promotion-b8a4ef7e-7b62-46f0-81a7-0592c2b1a95e",
+                    "name": "Promotion",
+                    "cover_url": "",
+                    "data": "",
+                    "created_at": 1660666411,
+                    "custom_type": ""
+                }
+            ]
+        },
+        "rawHeaders": [
+            "Date",
+            "Wed, 17 Aug 2022 09:38:39 GMT",
+            "Content-Type",
+            "application/json",
+            "Content-Length",
+            "164",
+            "Connection",
+            "close",
+            "Server",
+            "nginx",
+            "Request-Id",
+            "03ee080d-c0fc-4716-b257-7c2b12e0a474",
+            "X-Frame-Options",
+            "SAMEORIGIN",
+            "X-RateLimit-Limit",
+            "20;w=1",
+            "X-RateLimit-Remaining",
+            "19",
+            "X-RateLimit-Reset",
+            "0.049999952316284",
+            "X-RateLimit-RetryAfter",
+            "0.0",
+            "Access-Control-Allow-Origin",
+            "*"
+        ],
+        "responseIsBinary": false
+    }
+]

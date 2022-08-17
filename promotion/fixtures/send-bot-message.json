@@ -1,0 +1,46 @@
+[
+    {
+        "scope": "https://api-4ae6adf2-29f8-447d-a0d5-1c22184fdb3f.sendbird.com:443",
+        "method": "POST",
+        "path": "/v3/bots/1/send",
+        "body": {
+            "message": "yo",
+            "channel_url": "promotion-b8a4ef7e-7b62-46f0-81a7-0592c2b1a95e"
+        },
+        "status": 200,
+        "response": [
+            "1f8b08000000000000034550cb8e83300cfc979c890494f2baaff6b4a73dae56910ba68d0a09eb244855d57f5fa7407b8a331e8fc77317133a076714ed5df8dbccaff8faf8fe14c9de50ba176d91d77573c8b3b24ede03e26699d68307aeb9ea82f376529b0a03831ea3ee835b84e0b157e0459b95655a1dd226afca639188e090e2f2f83e77898c4767b2715a051a572dc2bfa00915047f518325b533f4f43433c0e8301146775703533410f4557b09f3ec648f937d5ee461b51b3d911d379fda29e8bc5ef8eb2960f47b016370dcd6f3aac97a6d8d3cd550e050a1ac4e652e8b7248659d4125d3639377f92983e6882c18e6fe756efa4ed2055af402a372d859d33bd1ca2c764dd4667a8c80c19fdf17b887b97612e1f862e3579b6f5d42bfd12f36d0aaba5fb0099cc98699053c81712344b25b63e0e389e359b07f85c8909dd5e4ce1bf278fc036fd9027627020000"
+        ],
+        "rawHeaders": [
+            "Date",
+            "Wed, 17 Aug 2022 10:08:47 GMT",
+            "Content-Type",
+            "application/json",
+            "Transfer-Encoding",
+            "chunked",
+            "Connection",
+            "close",
+            "Server",
+            "nginx",
+            "Vary",
+            "Accept-Encoding",
+            "Request-Id",
+            "3bf1def9-6415-4737-baa4-def42a3d6ce7",
+            "X-Frame-Options",
+            "SAMEORIGIN",
+            "X-RateLimit-Limit",
+            "20;w=1",
+            "X-RateLimit-Remaining",
+            "19",
+            "X-RateLimit-Reset",
+            "0.049999952316284",
+            "X-RateLimit-RetryAfter",
+            "0.0",
+            "Access-Control-Allow-Origin",
+            "*",
+            "Content-Encoding",
+            "gzip"
+        ],
+        "responseIsBinary": false
+    }
+]

@@ -7,21 +7,30 @@ describe('sendbird', () => {
     it('create a promo message', () => {
         const mockMessage = "use this text when creating markdown app message";
         const sendbird = new Sendbird();
-        const appData = sendbird.constructMarkdownAppWithButton(mockMessage);
-        expect(appData).toEqual(`# App Message \n **${mockMessage}** [button:Confirm]()`)
+        const appData = sendbird.constructMarkdownPromotionalMessage(mockMessage);
+        expect(appData).toEqual(`![alt promotion hero image](https://scout-poc.pages.dev/static/media/banner-renew.fa578f5b.png#hero)
+        Renew today and get 20% off annual subscription! That's free for 2 months.
+        [:button renew]()`)
     });
 
 
-    it('send bot message with markdown data to channel', async () => {
-        const { nockDone, context } = await nockBack('send-user-message.json');
-
-        const mockChannelUrl = "sendbird_group_channel_185112538_8ada9ca637b49b7b793f89f6010c89a4aaa4abc7";
-        const mockAppData = "**this is some bold text** [button:shuffle]()";
-        const mockUserId = "sendbird";
-        const message = "cat";
-
+    it('sends a bot message', async () => {
+        const { nockDone, context } = await nockBack('send-bot-message.json');
+        const channel_url = "promotion-b8a4ef7e-7b62-46f0-81a7-0592c2b1a95e";
+        const markdown = "yo";
         const sendbird = new Sendbird();
-        await sendbird.sendUserMessage(mockAppData, mockUserId, mockChannelUrl, message);
+        const [response, error] = await sendbird.sendBotMessage(markdown, channel_url);
+
+        expect(response.message).toBeDefined();
+        nockDone();
+    });
+
+    it('joins channel as bot', async () => {
+        const { nockDone, context } = await nockBack('bot-join-channel.json');
+        const channel_url = "promotion-b8a4ef7e-7b62-46f0-81a7-0592c2b1a95e";
+        const sendbird = new Sendbird();
+        const [response, error] = await sendbird.botJoinChannel(channel_url);
+        expect(response.channels[0].channel_url).toEqual(channel_url);
         nockDone();
     });
 

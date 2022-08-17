@@ -10,21 +10,31 @@ app.use(cors());
 
 const sendbird = new Sendbird();
 
+// app functionality lives here. This endpoint listens for all app interaction e.g. slash commands and app button clicks
 app.post('/app', async (req, res) => {
 
 
 
 });
 
-// begin user journey. In a real world application these messages would be triggered by a customers existing backend system.
+// The /start endpoint only exists for demo purposes. In a real world application these messages would be triggered by a customers existing backend system.
 app.post('/start', async (req, res) => {
-    // construct markdown message
-    // create bot
-    // join channel
-    // send message
-    console.log(req.body);
+    const channelUrl = req.body.channelUrl;
+    if (!channelUrl) {
+        return res.status(400).send('channel url must be supplied');
+
+    }
+    const [joinResponse, joinError] = await sendbird.botJoinChannel(channelUrl);
+    if (joinError) {
+        console.log(joinError);
+        return res.status(500).send('failed to join');
+    }
     const appMessage = sendbird.constructMarkdownPromotionalMessage();
-    await sendbird.sendBotMessage();
+    const [sendResponse, sendError] = await sendbird.sendBotMessage(appMessage, channelUrl);
+    if (sendError) {
+        console.log(sendError);
+        return res.status(500).send('failed to send');
+    }
     return res.sendStatus(200);
 
 
