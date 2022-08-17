@@ -1,0 +1,48 @@
+[
+    {
+        "scope": "https://api-4ae6adf2-29f8-447d-a0d5-1c22184fdb3f.sendbird.com:443",
+        "method": "POST",
+        "path": "/v3/group_channels/promotion-b8a4ef7e-7b62-46f0-81a7-0592c2b1a95e/invite",
+        "body": {
+            "channel_url": "promotion-b8a4ef7e-7b62-46f0-81a7-0592c2b1a95e",
+            "user_ids": [
+                "promotion"
+            ]
+        },
+        "status": 200,
+        "response": [
+            "1f8b0800000000000003d554c96edb3014fc179eed44726cc5f1ad40af017a6f02e2897a9299702b17b7aee17fefd36a25698100b93427cbc3b7ce0c7962620fc6a0e2c92bb663ce5b6da3b466596e618df52d2e6fcb62b55c1775b6dce670bbcc36772bb12a73b8db205b30031a29efdb984790b007f443bd7d8c2eec1eae1fae438428c555405395d25757c26a02413b850fd75dcaf0c3f39bab27d750a10a22500dfad2a84b3a113699c876ab057bb2d260c5dfe01a7e7185a6897b3a0b011a1a6e9365194de51122a50005e645911545b1ce73c2538856f37874d8f79281573244690445d6a0027658480efd1c28bd854a407811e552a9a4982354ab5b0b4a85135e7bc4df380f43b7474d516a0293a189ab718d71c76c76605ac26707b231d623270d6b30321e792d559c0d3d48cd76a7cfa1fabb25fbb7eaaf0c72a6f2328073085e9ae6127d6a35885e360d7aea581e27de5bae27064730247f9007503ca0b0a60a6cb7cccf9d8e2004c550c3aa4dfd9124957b57fa82051d3805aa12c4733bd14f90f16504fe122a51e1146827d9a2df1fa9ad2213ce571988f9f2f5fe9e5d9a4a9a63bdda169b5556acb309a7c0a37d49fb6b7affa6c3cddd36db2c3eeaa3e4aaa9723752676902da0dbbf526709ca73fb9741ee0c6dbe4fadbeb5193a346d6cfa309da72273650371fb6f5b314cf83a7e7707b93a4c2613b0206453924b25a6d3d1f23a4eea89c748ed0f379ea5d618da2f76a3aef040b88a65bbcd39eee49dbbd7fd7d860a5280f04469f28c75b7579a0748a735bb5ff385db1a95c8f54188497ae5b8632cf8bf9faef5468c6ccbd147b540aff4f622c3dcf10adff0841e4b6b1cc6bb77c02bab20b5b6f793a3f9eff00793f6d79ec070000"
+        ],
+        "rawHeaders": [
+            "Date",
+            "Wed, 17 Aug 2022 12:34:50 GMT",
+            "Content-Type",
+            "application/json",
+            "Transfer-Encoding",
+            "chunked",
+            "Connection",
+            "close",
+            "Server",
+            "nginx",
+            "Vary",
+            "Accept-Encoding",
+            "Request-Id",
+            "8ccc2698-139e-4c68-aa09-8ddbb4a0ce8d",
+            "X-Frame-Options",
+            "SAMEORIGIN",
+            "X-RateLimit-Limit",
+            "20;w=1",
+            "X-RateLimit-Remaining",
+            "19",
+            "X-RateLimit-Reset",
+            "0.049999952316284",
+            "X-RateLimit-RetryAfter",
+            "0.0",
+            "Access-Control-Allow-Origin",
+            "*",
+            "Content-Encoding",
+            "gzip"
+        ],
+        "responseIsBinary": false
+    }
+]

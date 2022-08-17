@@ -24,13 +24,13 @@ app.post('/start', async (req, res) => {
         return res.status(400).send('channel url must be supplied');
 
     }
-    const [joinResponse, joinError] = await sendbird.botJoinChannel(channelUrl);
+    const [joinResponse, joinError] = await sendbird.inviteUserToChannel(channelUrl);
     if (joinError) {
         console.log(joinError);
         return res.status(500).send('failed to join');
     }
     const appMessage = sendbird.constructMarkdownPromotionalMessage();
-    const [sendResponse, sendError] = await sendbird.sendBotMessage(appMessage, channelUrl);
+    const [sendResponse, sendError] = await sendbird.sendUserMessage(appMessage, channelUrl);
     if (sendError) {
         console.log(sendError);
         return res.status(500).send('failed to send');
