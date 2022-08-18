@@ -10,7 +10,7 @@ describe('sendbird', () => {
         const appData = sendbird.constructMarkdownPromotionalMessage(mockMessage);
         expect(appData).toEqual(`![alt promotion hero image](https://scout-poc.pages.dev/static/media/banner-renew.fa578f5b.png#hero)
         Renew today and get 20% off annual subscription! That's free for 2 months.
-        [:button renew]()`)
+        [button: renew]()`)
     });
 
 

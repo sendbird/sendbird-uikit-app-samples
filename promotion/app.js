@@ -12,7 +12,8 @@ const sendbird = new Sendbird();
 
 // app functionality lives here. This endpoint listens for all app interaction e.g. slash commands and app button clicks
 app.post('/app', async (req, res) => {
-
+    //listen for button message
+    // push out success
 
 
 });
