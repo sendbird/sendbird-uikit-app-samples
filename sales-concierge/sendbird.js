@@ -11,8 +11,8 @@ const gcChannelInstance = new SendbirdPlatformSdk.GroupChannelApi();
 gcChannelInstance.apiClient.basePath = `https://api-${process.env.APP_ID}.sendbird.com`;
 
 class Sendbird {
-    constructMarkdownPromotionalMessage() {
-        return `![alt promotion hero image](https://scout-poc.pages.dev/static/media/banner-renew.fa578f5b.png#hero) \n #### Renew today and get 20% off annual subscription! That's free for 2 months.\n[button:Renew](id=4)`;
+    constructMarkdownSalesMessage() {
+        return `#### Hey! I wanted to let you know we have some new birthday boxes about to be released that you can easily send to friends. \n #### Let me know if you want to preorder any today because we expect them to go fast since supplies are limited.`;
     }
 
     async sendUserMessage(markdownAppData, channelUrl) {
@@ -28,8 +28,8 @@ class Sendbird {
             }
         }
         let channelType = 'group_channels';
-        userMessageData.message = "promotional message";
-        userMessageData.user_id = "promotion";
+        userMessageData.message = "Sales concierge message";
+        userMessageData.user_id = "Sales Concierge James";
         userMessageData.messageType = 'MESG';
         userMessageData.data = JSON.stringify(appData);
         userMessageData.channel_url = channelUrl;
@@ -49,7 +49,6 @@ class Sendbird {
 
     }
 
-
     async sendBotMessage(markdownAppData, channelUrl) {
         const botUserid = process.env.BOT_ID;
         const sendBotSMessageData = new SendbirdPlatformSdk.SendBotSMessageData();
@@ -65,12 +64,9 @@ class Sendbird {
             return [null, error];
         }
 
-
     }
 
     async botJoinChannel(channelUrl) {
-
-
         const botUserid = process.env.BOT_ID;
         const joinChannelsData = new SendbirdPlatformSdk.JoinChannelsData();
         joinChannelsData.channel_urls = [channelUrl];
