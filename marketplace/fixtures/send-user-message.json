@@ -1,0 +1,49 @@
+[
+    {
+        "scope": "https://api-4ae6adf2-29f8-447d-a0d5-1c22184fdb3f.sendbird.com:443",
+        "method": "POST",
+        "path": "/v3/group_channels/promotion-b8a4ef7e-7b62-46f0-81a7-0592c2b1a95e/messages",
+        "body": {
+            "user_id": "marketplace",
+            "message": "Marketplace message",
+            "messageType": "MESG",
+            "data": "{\"sb_app\":{\"name\":\"basic-chat-app\",\"isDraft\":true,\"ui\":\"**this is some bold text** [button:shuffle]()\"}}",
+            "channel_url": "promotion-b8a4ef7e-7b62-46f0-81a7-0592c2b1a95e"
+        },
+        "status": 200,
+        "response": [
+            "1f8b08000000000000036551cb8adc3010fc15a35332d8601b3f667c4ec829a71cd78b68dbedb1583d1ca935240cf3ef919f7b0818d45415d55de527a3bf33b286fdfcfeeb078b9942e7e08e5c0cac29f25b79add3acc84f7c1182fd409a25f4181d68cc062008e4b365aee330cf2d6bc2ac4161985ad681137dd24f40c94ac62d13ee9b8591024dd66300bc58a5970b4dc245e1734661d4193944847fe87289de3a4f6474e3263f8e12dfbf7c6dd9eb15b6f7de91517c8f128051c8303d5f81b208840307624d5655e92d2dcab2aeae2193776883687dd7c04c7d660b26b3358b0ff7566eae167f7b619183a7898fc6f24321d4dacd08d261ccb4e83f96e4ff192a24d88a5a2eb346eed70ac7a127f1c0ad8be5ea09b446b9af0e6b94216174d25da1c0b1c6a4eeaa3c29aa314dae19d4495adef23eef32b895cb223f0f67e8f4f3a73a6f1fe201923bec8d1e1c6b926c61f5e21de44b11017c7b3fc1a3d28d89990b69359d490f638bb4eb27e3ed667b44d81deed6f839389005ed242c62b7f510d25b54e681c3e91b203373e5ee3bf2fa0745f2ef43a7020000"
+        ],
+        "rawHeaders": [
+            "Date",
+            "Fri, 19 Aug 2022 10:22:37 GMT",
+            "Content-Type",
+            "application/json",
+            "Transfer-Encoding",
+            "chunked",
+            "Connection",
+            "close",
+            "Server",
+            "nginx",
+            "Vary",
+            "Accept-Encoding",
+            "Request-Id",
+            "2aa96fc2-d35d-4a2c-b5d1-7cc60c9b3b26",
+            "X-Frame-Options",
+            "SAMEORIGIN",
+            "X-RateLimit-Limit",
+            "5;w=1",
+            "X-RateLimit-Remaining",
+            "9",
+            "X-RateLimit-Reset",
+            "0.20000004768372",
+            "X-RateLimit-RetryAfter",
+            "0.0",
+            "Access-Control-Allow-Origin",
+            "*",
+            "Content-Encoding",
+            "gzip"
+        ],
+        "responseIsBinary": false
+    }
+]

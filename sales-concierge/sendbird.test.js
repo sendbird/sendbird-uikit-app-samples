@@ -1,37 +1,14 @@
 const Sendbird = require('./sendbird');
 const nockBack = require('nock').back
 nockBack.fixtures = __dirname + '/fixtures';
-nockBack.setMode('dryrun');
+nockBack.setMode('record');
 
 describe('sendbird', () => {
-    it('create a promo message', () => {
+    it('create a sales message', () => {
         const mockMessage = "use this text when creating markdown app message";
         const sendbird = new Sendbird();
-        const appData = sendbird.constructMarkdownPromotionalMessage(mockMessage);
-        expect(appData).toEqual(`![alt promotion hero image](https://scout-poc.pages.dev/static/media/banner-renew.fa578f5b.png#hero)
-        Renew today and get 20% off annual subscription! That's free for 2 months.
-        [button: renew]()`)
-    });
-
-
-    it('sends a bot message', async () => {
-        const { nockDone, context } = await nockBack('send-bot-message.json');
-        const channel_url = "promotion-b8a4ef7e-7b62-46f0-81a7-0592c2b1a95e";
-        const markdown = "yo";
-        const sendbird = new Sendbird();
-        const [response, error] = await sendbird.sendBotMessage(markdown, channel_url);
-
-        expect(response.message).toBeDefined();
-        nockDone();
-    });
-
-    it('joins channel as bot', async () => {
-        const { nockDone, context } = await nockBack('bot-join-channel.json');
-        const channel_url = "promotion-b8a4ef7e-7b62-46f0-81a7-0592c2b1a95e";
-        const sendbird = new Sendbird();
-        const [response, error] = await sendbird.botJoinChannel(channel_url);
-        expect(response.channels[0].channel_url).toEqual(channel_url);
-        nockDone();
+        const appData = sendbird.constructMarkdownSalesMessage(mockMessage);
+        expect(appData).toEqual(`#### Hey! I wanted to let you know we have some new birthday boxes about to be released that you can easily send to friends. \n #### Let me know if you want to preorder any today because we expect them to go fast since supplies are limited.`)
     });
 
     it('send user message with markdown data to channel', async () => {
