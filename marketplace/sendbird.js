@@ -11,8 +11,9 @@ const gcChannelInstance = new SendbirdPlatformSdk.GroupChannelApi();
 gcChannelInstance.apiClient.basePath = `https://api-${process.env.APP_ID}.sendbird.com`;
 
 class Sendbird {
-    constructMarkdownPromotionalMessage() {
-        return `![alt promotion hero image](https://scout-poc.pages.dev/static/media/banner-renew.fa578f5b.png#hero) \n #### Renew today and get 20% off annual subscription! That's free for 2 months.\n[button:Renew](id=1)`;
+    //change marketplace image
+    constructMarkdownMarketPlaceMessage() {
+        return `![alt marketplace hero image](https://scout-poc.pages.dev/static/media/banner-renew.fa578f5b.png#hero) \n #### Black long dress \n ### $50`;
     }
 
     async sendUserMessage(markdownAppData, channelUrl) {
@@ -28,7 +29,7 @@ class Sendbird {
             }
         }
         let channelType = 'group_channels';
-        userMessageData.message = "promotional message";
+        userMessageData.message = "Marketplace message";
         userMessageData.user_id = "promotion";
         userMessageData.messageType = 'MESG';
         userMessageData.data = JSON.stringify(appData);

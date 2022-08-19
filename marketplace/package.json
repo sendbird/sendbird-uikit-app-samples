@@ -1,0 +1,24 @@
+{
+    "name": "uikit-app-promotions-sample",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "jest",
+      "start": "node server.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "cors": "^2.8.5",
+      "dotenv": "^16.0.1",
+      "express": "^4.18.1",
+      "sendbird-platform-sdk": "^1.0.3"
+    },
+    "devDependencies": {
+      "jest": "^28.1.3",
+      "nock": "^13.2.9"
+    }
+  }
+  

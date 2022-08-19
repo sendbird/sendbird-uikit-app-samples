@@ -11,8 +11,34 @@ const gcChannelInstance = new SendbirdPlatformSdk.GroupChannelApi();
 gcChannelInstance.apiClient.basePath = `https://api-${process.env.APP_ID}.sendbird.com`;
 
 class Sendbird {
-    constructMarkdownPromotionalMessage() {
-        return `![alt promotion hero image](https://scout-poc.pages.dev/static/media/banner-renew.fa578f5b.png#hero) \n #### Renew today and get 20% off annual subscription! That's free for 2 months.\n[button:Renew](id=1)`;
+    constructMarkdownDeliverySuccessMessage() {
+        return `#### Your order has been received. Carla is now preparing your food.`;
+    }
+
+    //need Sushi image
+    constructMarkdownOrderReceiptMessage() {
+        return `## Order Confirmation \n ![alt receipt hero image](https://scout-poc.pages.dev/static/media/banner-renew.fa578f5b.png#hero) \n **Sushi Son Dinner set-A with Coke** \n #### Paid with \n ### Visa 5454 \n ### Ship to \n #### 1995 Nassau Dr., Vancouver, BC V5P 3Z2 \n ### Total ## **$60** `;
+    }
+
+    constructMarkdownOrderCompleteMessage() {
+        return `#### Your order is now on its way! Should arrive at 6:30pm.`;
+    }
+
+    //need drop off image
+    constructMarkdownImageDeliveryMessage() {
+        return `![alt delivery hero image](https://scout-poc.pages.dev/static/media/banner-renew.fa578f5b.png#hero)`;
+    }
+
+    constructMarkdownSuccessfulDeliveryMessage() {
+        return `#### Thank you for using ShareSend Delivery. Your order has arrived! Jane has dropped it off at the front door.`;
+    }
+
+    constructMarkdownRatingMessage() {
+        return `#### Let us know how we did with your Sushi Son order. How was the delivery: [button:Good](id=1) [button:Bad](id=2)`;
+    }
+
+    constructMarkdownThankYouMessage() {
+        return `#### Thank you for your feedback!`;
     }
 
     async sendUserMessage(markdownAppData, channelUrl) {
@@ -28,8 +54,8 @@ class Sendbird {
             }
         }
         let channelType = 'group_channels';
-        userMessageData.message = "promotional message";
-        userMessageData.user_id = "promotion";
+        userMessageData.message = "ShareSend Delivery message";
+        userMessageData.user_id = "ShareSend Delivery";
         userMessageData.messageType = 'MESG';
         userMessageData.data = JSON.stringify(appData);
         userMessageData.channel_url = channelUrl;
