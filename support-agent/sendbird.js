@@ -38,7 +38,7 @@ class Sendbird {
         }
         let channelType = 'group_channels';
         userMessageData.message = "support agent message";
-        userMessageData.user_id = "promotion";
+        userMessageData.user_id = "agent";
         userMessageData.messageType = 'MESG';
         userMessageData.data = JSON.stringify(appData);
         userMessageData.channel_url = channelUrl;
@@ -97,7 +97,7 @@ class Sendbird {
     async inviteUserToChannel(channelUrl) {
         const gcInviteAsMembersData = new SendbirdPlatformSdk.GcInviteAsMembersData();
         gcInviteAsMembersData.channel_url = channelUrl;
-        gcInviteAsMembersData.user_ids = ["promotion"];
+        gcInviteAsMembersData.user_ids = ["agent"];
         const opts = {
             'gcInviteAsMembersData': gcInviteAsMembersData
         };

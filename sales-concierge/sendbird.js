@@ -29,7 +29,7 @@ class Sendbird {
         }
         let channelType = 'group_channels';
         userMessageData.message = "Sales concierge message";
-        userMessageData.user_id = "Sales Concierge James";
+        userMessageData.user_id = "concierge";
         userMessageData.messageType = 'MESG';
         userMessageData.data = JSON.stringify(appData);
         userMessageData.channel_url = channelUrl;
@@ -84,7 +84,7 @@ class Sendbird {
     async inviteUserToChannel(channelUrl) {
         const gcInviteAsMembersData = new SendbirdPlatformSdk.GcInviteAsMembersData();
         gcInviteAsMembersData.channel_url = channelUrl;
-        gcInviteAsMembersData.user_ids = ["promotion"];
+        gcInviteAsMembersData.user_ids = ["concierge"];
         const opts = {
             'gcInviteAsMembersData': gcInviteAsMembersData
         };
