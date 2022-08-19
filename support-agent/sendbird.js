@@ -17,7 +17,7 @@ class Sendbird {
     }
 
     constructMarkdownRatingMessage() {
-        return `#### Let us know how we did with your Sushi Son order. How was the delivery: [button:Good](id=1) [button:Bad](id=2)`;
+        return `#### Let us know how we did with your Sushi Son order. How was the delivery: [button:Good]() [button:Bad]()`;
     }
 
     constructMarkdownThankYouMessage() {

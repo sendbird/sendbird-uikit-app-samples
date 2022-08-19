@@ -1,0 +1,48 @@
+[
+    {
+        "scope": "https://api-4ae6adf2-29f8-447d-a0d5-1c22184fdb3f.sendbird.com:443",
+        "method": "POST",
+        "path": "/v3/group_channels/promotion-b8a4ef7e-7b62-46f0-81a7-0592c2b1a95e/invite",
+        "body": {
+            "channel_url": "promotion-b8a4ef7e-7b62-46f0-81a7-0592c2b1a95e",
+            "user_ids": [
+                "agent"
+            ]
+        },
+        "status": 200,
+        "response": [
+            "1f8b0800000000000003dd56cb6edb3a10fd1543ab36b0133989e5daeb165d1528709755208ca891cc86aff29126d7d0bf77244b0a1da768d06eda0001621f0e8773ce9921bd4fd80e944251042b926d62ac96da73ad16e53bb8c67a8d8b75995d2eaeb33a5dbc5bc27a91ae3697ecb25cc26685c93c512091f67d1ef711c4f41dda21dfce7be3b6f9457ee13c78cece1daaaae4b63a675a1208d208cc2ffa2dc3bf627975fed53494a8020f94833e499425ad301d944fb6d93cf9aab9c2aa38c125dc170255e377b4e61c3454dc2a4d53aaca2278da0214b8ccb234cbb2ebe592f0e0bc96857f3078388bbba2e2ce73c528b206e1b0c75c306863a0b41a2a06ee28ca845270162394aba705a5c009af2de2ff1887a1d9a1a42831814151c5d54863e498460baa133c5ae08dd2160bf2b006c5fd435173e1a3a207ab93edfedf70fdc596fddcf5270dd2527aeec01804cb55f318bdef3cf096370d5a3ab17c9874efb49e141c4117ec1dbf035138645a552ed92e966def233046317460d56dfd1638a57bd1f679e2a42b285094c06ebb8abe03f7c71178cf44a0c4c11127dea15f6ee858414d18531984f9f4e1bf8fc9e3a19ceab8bedcac36abf57ab39a700aa4d636dafa197d537e36e29313fb3c716541a2e5943cefbda74f795282e36c419de417fde23c2701de5ba83d2d7b1b9080c0fbd0b333bfe36e467f4e4b9c955a54338ff7feec6cf6a50cde6bb575bb50d7026fdebccd93b64d9e7199bab9a3d79e36c626cd56e9d5d555371cae6bf87d3248443b7b56b4bd1b0bca30b42801833d0504ea9b5adb628ce0b2d765304d71763bf4fb984aa28783385d35568bc7ab0398e77778e0dfceff74ce82a926a2e9affa67b81028bc23df37c7048e321e56a8d788a7f2278d69d10ff13b1dec21ed4861c8d0581d0c65f0169413d005bb830ec4dea2a461aee28b4d9b42ba6640da7122bbea9e33e919b17fd7b76393ba4a94a047635aefa7c621aa5edd7e00e9b2ea4e3e3c2ea77e3eb15a061fcf76f7ada07b6e4a77402a74cc72d3df92b4b39dc7b4c93dc6d1f6d316518fe1d74c9f7a88ddd23d7ccc3e425f337909f616bd11c09eb87fbcf09a2530d1ef874880187ecdf45ff80844ca7ce26c8742fca57da1e91732786dff44207ab2c6344fdf887f40aef451ad539dda9bf60794ba43e06f0d0000"
+        ],
+        "rawHeaders": [
+            "Date",
+            "Fri, 19 Aug 2022 10:55:03 GMT",
+            "Content-Type",
+            "application/json",
+            "Transfer-Encoding",
+            "chunked",
+            "Connection",
+            "close",
+            "Server",
+            "nginx",
+            "Vary",
+            "Accept-Encoding",
+            "Request-Id",
+            "43cd1d39-232c-4515-bee9-ce5bc8fb2eb6",
+            "X-Frame-Options",
+            "SAMEORIGIN",
+            "X-RateLimit-Limit",
+            "20;w=1",
+            "X-RateLimit-Remaining",
+            "19",
+            "X-RateLimit-Reset",
+            "0.049999952316284",
+            "X-RateLimit-RetryAfter",
+            "0.0",
+            "Access-Control-Allow-Origin",
+            "*",
+            "Content-Encoding",
+            "gzip"
+        ],
+        "responseIsBinary": false
+    }
+]
