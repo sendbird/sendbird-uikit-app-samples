@@ -11,11 +11,17 @@ const gcChannelInstance = new SendbirdPlatformSdk.GroupChannelApi();
 gcChannelInstance.apiClient.basePath = `https://api-${process.env.APP_ID}.sendbird.com`;
 
 class Sendbird {
-    constructMarkdownPromotionalSuccessMessage() {
-        return `### 🍾 Thanks!! Renewal Succesful 🍾`;
+    //pass in name of user
+    constructMarkdownSupportMessage() {
+        return `#### Hey James. How can I help you today?`;
     }
-    constructMarkdownPromotionalMessage() {
-        return `![alt promotion hero image](https://scout-poc.pages.dev/static/media/banner-renew.fa578f5b.png#hero) \n #### Renew today and get 20% off annual subscription! That's free for 2 months.\n[button:Renew](id=1)`;
+
+    constructMarkdownRatingMessage() {
+        return `#### Let us know how we did with your Sushi Son order. How was the delivery: [button:Good](id=1) [button:Bad](id=2)`;
+    }
+
+    constructMarkdownThankYouMessage() {
+        return `#### Thank you for your feedback!`;
     }
 
     async sendUserMessage(markdownAppData, channelUrl) {
@@ -25,12 +31,13 @@ class Sendbird {
         let userMessageData = new SendbirdPlatformSdk.SendMessageData();
         let appData = {
             "sb_app": {
-                "name": "promotion-app",
+                "name": "basic-chat-app",
+                "isDraft": true,
                 "ui": markdownAppData
             }
         }
         let channelType = 'group_channels';
-        userMessageData.message = "promotional message";
+        userMessageData.message = "support agent message";
         userMessageData.user_id = "promotion";
         userMessageData.messageType = 'MESG';
         userMessageData.data = JSON.stringify(appData);

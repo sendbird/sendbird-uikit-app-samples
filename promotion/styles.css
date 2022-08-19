@@ -1,0 +1,29 @@
+.markdown-container {
+  background-color: rgb(198, 196, 196) !important;
+  color: black !important;
+  padding: none !important;
+}
+
+.app-button-secondary {
+  margin: 0;
+}
+
+.markdown-container img {
+  max-width: none;
+}
+
+.markdown-container h4 {
+  padding: 12px 12px;
+  font-size: 16px !important;
+}
+
+.markdown-container .app-button-secondary {
+  margin-top: 5px;
+  margin-left: 0px;
+  padding: 12px 12px;
+  background-color: rgb(151, 151, 151) !important;
+  color: black !important;
+  border-radius: 10px;
+  font-size: bold;
+  width: 100% !important;
+}
