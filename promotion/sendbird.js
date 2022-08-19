@@ -11,6 +11,9 @@ const gcChannelInstance = new SendbirdPlatformSdk.GroupChannelApi();
 gcChannelInstance.apiClient.basePath = `https://api-${process.env.APP_ID}.sendbird.com`;
 
 class Sendbird {
+    constructMarkdownPromotionalSuccessMessage() {
+        return `### 🍾 Thanks!! Renewal Succesful 🍾`;
+    }
     constructMarkdownPromotionalMessage() {
         return `![alt promotion hero image](https://scout-poc.pages.dev/static/media/banner-renew.fa578f5b.png#hero)
         Renew today and get 20% off annual subscription! That's free for 2 months.  
@@ -24,8 +27,7 @@ class Sendbird {
         let userMessageData = new SendbirdPlatformSdk.SendMessageData();
         let appData = {
             "sb_app": {
-                "name": "basic-chat-app",
-                "isDraft": true,
+                "name": "promotion-app",
                 "ui": markdownAppData
             }
         }

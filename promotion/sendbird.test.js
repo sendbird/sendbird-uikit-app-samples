@@ -9,7 +9,7 @@ describe('sendbird', () => {
         const sendbird = new Sendbird();
         const appData = sendbird.constructMarkdownPromotionalMessage(mockMessage);
         expect(appData).toEqual(`![alt promotion hero image](https://scout-poc.pages.dev/static/media/banner-renew.fa578f5b.png#hero)
-        Renew today and get 20% off annual subscription! That's free for 2 months.
+        Renew today and get 20% off annual subscription! That's free for 2 months.  
         [button: renew]()`)
     });
 
@@ -34,7 +34,7 @@ describe('sendbird', () => {
         nockDone();
     });
 
-    it('send user message with markdown data to channel', async () => {
+    it.only('send user message with markdown data to channel', async () => {
         const { nockDone, context } = await nockBack('send-user-message.json');
 
         const channelUrl = "promotion-b8a4ef7e-7b62-46f0-81a7-0592c2b1a95e";

@@ -14,6 +14,15 @@ const sendbird = new Sendbird();
 app.post('/app', async (req, res) => {
     //listen for button message
     // push out success
+    if (req.body.trigger === 'button') {
+        const markdownAppData = sendbird.constructMarkdownPromotionalSuccessMessage();
+        const [response, error] = await sendbird.sendUserMessage(markdownAppData, req.body.channelUrl);
+        if (error) {
+            console.log(error)
+            return res.status(400).send('failed to send confirmation message');
+        }
+        return res.sendStatus(200);
+    }
 
 
 });

@@ -7,16 +7,16 @@
             "user_id": "promotion",
             "message": "promotional message",
             "messageType": "MESG",
-            "data": "{\"sb_app\":{\"name\":\"basic-chat-app\",\"isDraft\":true,\"ui\":\"**this is some bold text** [button:shuffle]()\"}}",
+            "data": "{\"sb_app\":{\"name\":\"promotion-app\",\"ui\":\"**this is some bold text** [button:shuffle]()\"}}",
             "channel_url": "promotion-b8a4ef7e-7b62-46f0-81a7-0592c2b1a95e"
         },
         "status": 200,
         "response": [
-            "1f8b08000000000000035d51cb8adc3010fc15a35332d8e0f1ceda639f1372ca29c7f522da767b2c56961ca935240cf3ef693f170202355545a9abf410f4774251899fdf7ffd10b118d17bb8a1549da82ed9b57cb9a4d73c3b70164ece8e969435a0a31d8d4507044c3e6ae11b09d3548b8a670323f2548b06bc6a9376004a1632ae85f2df1cf4c434b9800c04b5484f271a948ff8783b62d458dd45847fe8748ade9a40644de587d0f71adfbf7cadc5f3c9afb7c1931de51685815e699e1e4fa61c026127814475cef3b478298b8c8395b1081e1d8b967b09fc998d2d789e5d64707af574f83b288712020db2b74eee0a352ecdf4a03dc6c2a8f663cefd9fdd88046b49f356ceea6d53e525b4a4eeb8f6306f3c8031a8b7870f8fa4b9c205fb0293a2c9b3e492f769723d4391a4af65d666cd19cad7f927c2d41d81d3cf0ff5c1ddd51db4f4d85ad3795125e79935b337cbe712187c7b3fc0bdce958985e7ac868e9cbbb143daf4830d6eb5dd236c0e3767c3c40ee4c0780db3d8af3d707a87a3bd6377f832642739fadb863cff0145d26170a3020000"
+            "1f8b08000000000000035d51cb8e9b4010fc1534a7c40209b0170cf728a73de5b8ac460d34669479b0f3b01259fef7344f4b919068aa6a6aba8a07f37f2764357bfff1eb278b9942e7e0865cf4acbee4d5392dcf457e3d70124ed628e385d120a31d8d590f1e887c34ccb51ca6a96135cd1a14d2d4bc0e250b17372c8885389dfc285c448f330aa3d6c83ef2f8c79f4ed1471bbc37ba76631806899fdfbe37ecf9a4bbbae0bc517c5b9c8041489a1e4fa22c82c79e8367755614e9f59ca5555516979805879644cb7b89f75a8a2c689e5d78b072f5b4f81584450ec18f7c3096ef0aa1961e06900e63a645f77b4ef99f9d420f6b25f356d6c86d53e138745edce9d3db80f3c623688d72bbf8d5537b850b0e2526655be4c9a518d2e49a4199a46f55dee56d06d5dbdc7b98fa2370fafa7d2ed8bbb883e40e3ba37bc7ea249b593d7b937c2e81c08fcf03dceb5c999839caaafd917337b6e837fd68825d6df7089bc3cd9a309183b7a09d8459ecd61e28bd4565eed81fbe0499892b77db90e73fef26d38891020000"
         ],
         "rawHeaders": [
             "Date",
-            "Wed, 17 Aug 2022 12:35:23 GMT",
+            "Thu, 18 Aug 2022 13:58:19 GMT",
             "Content-Type",
             "application/json",
             "Transfer-Encoding",
@@ -28,7 +28,7 @@
             "Vary",
             "Accept-Encoding",
             "Request-Id",
-            "aced992c-ae71-46da-9d0d-8e92842cb807",
+            "48980d3e-1796-4fc7-a1c9-fdda6e20774c",
             "X-Frame-Options",
             "SAMEORIGIN",
             "X-RateLimit-Limit",
