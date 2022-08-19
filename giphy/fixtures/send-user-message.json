@@ -1,0 +1,46 @@
+[
+    {
+        "scope": "https://api-4ae6adf2-29f8-447d-a0d5-1c22184fdb3f.sendbird.com:443",
+        "method": "POST",
+        "path": "/v3/group_channels/sendbird_group_channel_185112538_8ada9ca637b49b7b793f89f6010c89a4aaa4abc7/messages",
+        "body": {
+            "user_id": "sendbird",
+            "messageType": "MESG",
+            "data": "{\"sb_app\":{\"name\":\"giphy-app\",\"isDraft\":true,\"ui\":\"**this is some bold text**\"}}",
+            "channel_url": "sendbird_group_channel_185112538_8ada9ca637b49b7b793f89f6010c89a4aaa4abc7"
+        },
+        "status": 400,
+        "response": {
+            "error": true,
+            "message": "\"Channel\" not found.",
+            "code": 400201
+        },
+        "rawHeaders": [
+            "Date",
+            "Fri, 19 Aug 2022 12:37:33 GMT",
+            "Content-Type",
+            "application/json",
+            "Content-Length",
+            "63",
+            "Connection",
+            "close",
+            "Server",
+            "nginx",
+            "Request-Id",
+            "8e1e7367-d946-4515-b258-06a9f892f0ce",
+            "X-Frame-Options",
+            "SAMEORIGIN",
+            "X-RateLimit-Limit",
+            "5;w=1",
+            "X-RateLimit-Remaining",
+            "9",
+            "X-RateLimit-Reset",
+            "0.20000004768372",
+            "X-RateLimit-RetryAfter",
+            "0.0",
+            "Access-Control-Allow-Origin",
+            "*"
+        ],
+        "responseIsBinary": false
+    }
+]
