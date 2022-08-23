@@ -35,6 +35,11 @@ app.post('/start', async (req, res) => {
         console.log(sendError);
         return res.status(500).send('failed to send');
     }
+
+
+
+    //timer to send next message
+
     return res.sendStatus(200);
 
 

@@ -15,9 +15,8 @@ class Sendbird {
         return `#### Your order has been received. Carla is now preparing your food.`;
     }
 
-    //need Sushi image
     constructMarkdownOrderReceiptMessage() {
-        return `## Order Confirmation \n ![alt receipt hero image](https://scout-poc.pages.dev/static/media/banner-renew.fa578f5b.png#hero) \n **Sushi Son Dinner set-A with Coke** \n #### Paid with \n ### Visa 5454 \n ### Ship to \n #### 1995 Nassau Dr., Vancouver, BC V5P 3Z2 \n ### Total ## **$60** `;
+        return `## Order Confirmation \n ![alt receipt hero image](https://scout-poc.pages.dev/static/media/sushi.3245adb1.jpg#hero) \n **Sushi Son Dinner set-A with Coke** \n #### Paid with \n ### Visa 5454 \n ### Ship to \n #### 1995 Nassau Dr., Vancouver, BC V5P 3Z2 \n ### Total ## **$60** `;
     }
 
     constructMarkdownOrderCompleteMessage() {
