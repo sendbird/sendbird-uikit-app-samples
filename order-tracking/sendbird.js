@@ -17,7 +17,23 @@ class Sendbird {
 
     //need Sushi image
     constructMarkdownOrderReceiptMessage() {
-        return `## Order Confirmation \n ![alt receipt hero image](https://scout-poc.pages.dev/static/media/banner-renew.fa578f5b.png#hero) \n **Sushi Son Dinner set-A with Coke** \n #### Paid with \n ### Visa 5454 \n ### Ship to \n #### 1995 Nassau Dr., Vancouver, BC V5P 3Z2 \n ### Total ## **$60** `;
+        const orderTrackingMarkdown = `
+        |   |   |
+        | - | - |
+        | ![sushi](https://scout-poc.pages.dev/static/media/sushi.3245adb1.jpg) | **Sushi Son Dinner set-A with coke** |
+        ### Paid with
+        Visa 5454
+        &nbsp;
+        ### Ship to
+        1995 Nassau Dr., Vancouver, BC V5P 3Z2
+        &nbsp;
+        ***
+        |    |       |
+        | :- |    -: |
+        | Total | # $60 |
+        
+        `;
+        return orderTrackingMarkdown;
     }
 
     constructMarkdownOrderCompleteMessage() {

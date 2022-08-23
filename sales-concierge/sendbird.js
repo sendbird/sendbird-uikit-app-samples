@@ -12,7 +12,15 @@ gcChannelInstance.apiClient.basePath = `https://api-${process.env.APP_ID}.sendbi
 
 class Sendbird {
     constructMarkdownSalesMessage() {
-        return `#### Hey! I wanted to let you know we have some new birthday boxes about to be released that you can easily send to friends. \n #### Let me know if you want to preorder any today because we expect them to go fast since supplies are limited.`;
+        const productsMarkdown = `
+        |    |       |
+        | :- |    :- |
+        | ![chocolate box silver](https://scout-poc.pages.dev/static/media/chocolate-box-silver.cfd908e1.jpg#hero) | ![chocolate box gold](https://scout-poc.pages.dev/static/media/chocolate-box-gold.f07fbf2d.jpg#hero) |
+        | Chocolate Lover Birthday Box - Silver | Chocolate Lover Birthday Box - Gold |
+        | # $100 | # $150 |
+        | [button:Select]() | [button:Select]() |
+        `;
+        return productsMarkdown;
     }
 
     async sendUserMessage(markdownAppData, channelUrl) {
@@ -60,7 +68,7 @@ class Sendbird {
             const response = await gcChannelInstance.gcInviteAsMembers(process.env.API_TOKEN, channelUrl, opts)
             return [response, null];
         } catch (error) {
-            [null, error];
+            return [null, error];
         }
     }
 

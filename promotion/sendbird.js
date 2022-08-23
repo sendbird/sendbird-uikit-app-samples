@@ -15,7 +15,7 @@ class Sendbird {
         return `### 🍾 Thanks!! Renewal Succesful 🍾`;
     }
     constructMarkdownPromotionalMessage() {
-        return `![alt promotion hero image](https://scout-poc.pages.dev/static/media/banner-renew.fa578f5b.png#hero) \n #### Renew today and get 20% off annual subscription! That's free for 2 months.\n[button:Renew]()`;
+        return `![alt promotion hero image](https://scout-poc.pages.dev/static/media/banner-renew.fa578f5b.png#hero)  &nbsp;\n Renew today and get 20% off annual subscription! That's free for 2 months. \n &nbsp; [button:Renew]()`;
     }
 
     async sendUserMessage(markdownAppData, channelUrl) {
@@ -62,7 +62,7 @@ class Sendbird {
             const response = await gcChannelInstance.gcInviteAsMembers(process.env.API_TOKEN, channelUrl, opts)
             return [response, null];
         } catch (error) {
-            [null, error];
+            return [null, error];
         }
     }
 
