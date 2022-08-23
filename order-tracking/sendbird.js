@@ -12,7 +12,24 @@ gcChannelInstance.apiClient.basePath = `https://api-${process.env.APP_ID}.sendbi
 
 class Sendbird {
     constructMarkdownDeliverySuccessMessage() {
-        return `#### Your order has been received. Carla is now preparing your food.`;
+        const orderTrackingMarkdown = `
+|   |   |
+| - | - |
+| ![sushi](https://scout-poc.pages.dev/static/media/sushi.3245adb1.jpg) | **Sushi Son Dinner set-A with coke** |
+### Paid with
+Visa 5454
+&nbsp;
+### Ship to
+1995 Nassau Dr., Vancouver, BC V5P 3Z2
+&nbsp;
+***
+|    |       |
+| :- |    -: |
+| Total | # $60 |
+        
+        `;
+        return orderTrackingMarkdown;
+        // return `#### Your order has been received. Carla is now preparing your food.`;
     }
 
     //need Sushi image
@@ -64,8 +81,7 @@ class Sendbird {
         let userMessageData = new SendbirdPlatformSdk.SendMessageData();
         let appData = {
             "sb_app": {
-                "name": "basic-chat-app",
-                "isDraft": true,
+                "name": "order-tracking",
                 "ui": markdownAppData
             }
         }

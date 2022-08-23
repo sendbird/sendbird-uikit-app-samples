@@ -25,7 +25,7 @@ class Sendbird {
         let userMessageData = new SendbirdPlatformSdk.SendMessageData();
         let appData = {
             "sb_app": {
-                "name": "promotion-app",
+                "name": "promotion",
                 "ui": markdownAppData
             }
         }

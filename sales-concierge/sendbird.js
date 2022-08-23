@@ -13,12 +13,12 @@ gcChannelInstance.apiClient.basePath = `https://api-${process.env.APP_ID}.sendbi
 class Sendbird {
     constructMarkdownSalesMessage() {
         const productsMarkdown = `
-        |    |       |
-        | :- |    :- |
-        | ![chocolate box silver](https://scout-poc.pages.dev/static/media/chocolate-box-silver.cfd908e1.jpg#hero) | ![chocolate box gold](https://scout-poc.pages.dev/static/media/chocolate-box-gold.f07fbf2d.jpg#hero) |
-        | Chocolate Lover Birthday Box - Silver | Chocolate Lover Birthday Box - Gold |
-        | # $100 | # $150 |
-        | [button:Select]() | [button:Select]() |
+|    |       |
+| :- |    :- |
+| ![chocolate box silver](https://scout-poc.pages.dev/static/media/chocolate-box-silver.cfd908e1.jpg#hero) | ![chocolate box gold](https://scout-poc.pages.dev/static/media/chocolate-box-gold.f07fbf2d.jpg#hero) |
+| Chocolate Lover Birthday Box - Silver | Chocolate Lover Birthday Box - Gold |
+| # $100 | # $150 |
+| [button:Select]() | [button:Select]() |
         `;
         return productsMarkdown;
     }
@@ -30,8 +30,7 @@ class Sendbird {
         let userMessageData = new SendbirdPlatformSdk.SendMessageData();
         let appData = {
             "sb_app": {
-                "name": "basic-chat-app",
-                "isDraft": true,
+                "name": "concierge",
                 "ui": markdownAppData
             }
         }
