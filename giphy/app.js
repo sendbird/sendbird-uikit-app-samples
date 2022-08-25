@@ -14,7 +14,7 @@ app.use(cors());
 app.use(express.static("public"));
 let finalGiphy;
 
-app.post("/start", async (req, res) => {
+app.post("/app", async (req, res) => {
   if (req.body.trigger === "command") {
     let searchedInput = req.body.params;
     const giphyResults = await giphy.fetchSearchResults(searchedInput);

@@ -18,27 +18,26 @@ class Sendbird {
 | ![chocolate box silver](https://scout-poc.pages.dev/static/media/chocolate-box-silver.cfd908e1.jpg#hero) | ![chocolate box gold](https://scout-poc.pages.dev/static/media/chocolate-box-gold.f07fbf2d.jpg#hero) |
 | Chocolate Lover Birthday Box - Silver | Chocolate Lover Birthday Box - Gold |
 | # $100 | # $150 |
-| [button:Select]() | [button:Select]() |
+| [button:Select]() | [button:Select ]() |
         `;
         return productsMarkdown;
     }
 
-    async sendUserMessage(markdownAppData, channelUrl) {
+    constructMarkdownConfirmPreOrder(productType) {
+        return `Click to pre-order “Chocolate Lover Birthday Box - ${productType}  \n [button:Pre-order]()`
+    }
+
+    async sendUserMessage(appData, message, channelUrl) {
         let apiToken = process.env.API_TOKEN;
 
         // bot needs to exist https://www.postman.com/sendbird/workspace/sendbird-platform-api/request/19408238-62360d3f-07f7-40ac-b2d0-13cd6b1591ea;
         let userMessageData = new SendbirdPlatformSdk.SendMessageData();
-        let appData = {
-            "sb_app": {
-                "name": "concierge",
-                "ui": markdownAppData
-            }
-        }
+
         let channelType = 'group_channels';
-        userMessageData.message = "Sales concierge message";
+        userMessageData.message = message;
         userMessageData.user_id = "concierge";
         userMessageData.messageType = 'MESG';
-        userMessageData.data = JSON.stringify(appData);
+        userMessageData.data = appData && JSON.stringify(appData);
         userMessageData.channel_url = channelUrl;
         let opts = {
             'sendMessageData': userMessageData

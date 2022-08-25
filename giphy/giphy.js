@@ -6,7 +6,7 @@ class Giphy {
     let data = [];
     const results = await axios(`https://api.giphy.com/v1/gifs/search`, {
       params: {
-        api_key: process.env.REACT_APP_GIPHY_API_KEY,
+        api_key: process.env.GIPHY_API_KEY,
         q: searchedInput,
       },
     });
@@ -18,7 +18,7 @@ class Giphy {
     let lastGiphySeen = {};
     let randomizedNumber = Math.floor(Math.random() * 26);
     let giphySelected = giphyResults[randomizedNumber];
-    if(lastGiphySeen === giphySelected){
+    if (lastGiphySeen === giphySelected) {
       giphySelected = giphyResults[Math.floor(Math.random() * 26)];
     }
     lastGiphySeen = giphySelected;
