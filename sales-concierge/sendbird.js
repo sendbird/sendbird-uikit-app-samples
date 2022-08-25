@@ -18,13 +18,13 @@ class Sendbird {
 | ![chocolate box silver](https://scout-poc.pages.dev/static/media/chocolate-box-silver.cfd908e1.jpg#hero) | ![chocolate box gold](https://scout-poc.pages.dev/static/media/chocolate-box-gold.f07fbf2d.jpg#hero) |
 | Chocolate Lover Birthday Box - Silver | Chocolate Lover Birthday Box - Gold |
 | # $100 | # $150 |
-| [button:Select]() | [button:Select]() |
+| [button:Select]() | [button:Select ]() |
         `;
         return productsMarkdown;
     }
 
-    constructMarkdownConfirmPreOrder() {
-        return `Click to pre-order “Chocolate Lover Birthday Box - Silver”  \n [button:Pre-order]()`
+    constructMarkdownConfirmPreOrder(productType) {
+        return `Click to pre-order “Chocolate Lover Birthday Box - ${productType}  \n [button:Pre-order]()`
     }
 
     async sendUserMessage(appData, message, channelUrl) {

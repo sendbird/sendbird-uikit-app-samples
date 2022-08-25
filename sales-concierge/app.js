@@ -12,8 +12,24 @@ const sendbird = new Sendbird();
 
 // app functionality lives here. This endpoint listens for all app interaction e.g. slash commands and app button clicks
 app.post('/app', async (req, res) => {
+    if (req.body.trigger === 'button' && req.body.params.buttonId === 'Select ') {
+        const markdownAppData = sendbird.constructMarkdownConfirmPreOrder("Gold");
+        const appData = {
+            "sb_app": {
+                "name": "concierge",
+                "ui": markdownAppData
+            }
+        }
+        const [response, error] = await sendbird.sendUserMessage(appData, "pre order", req.body.channelUrl);
+        if (error) {
+            console.log(error)
+            return res.status(400).send('failed to send confirmation message');
+        }
+        return res.sendStatus(200);
+    }
+
     if (req.body.trigger === 'button' && req.body.params.buttonId === 'Select') {
-        const markdownAppData = sendbird.constructMarkdownConfirmPreOrder();
+        const markdownAppData = sendbird.constructMarkdownConfirmPreOrder("Silver");
         const appData = {
             "sb_app": {
                 "name": "concierge",
@@ -37,6 +53,8 @@ app.post('/app', async (req, res) => {
         }
         return res.sendStatus(200);
     }
+
+    res.status(400).send('no action');
 });
 
 app.post('/start', async (req, res) => {
