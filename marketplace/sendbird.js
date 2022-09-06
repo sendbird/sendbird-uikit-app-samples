@@ -11,9 +11,8 @@ const gcChannelInstance = new SendbirdPlatformSdk.GroupChannelApi();
 gcChannelInstance.apiClient.basePath = `https://api-${process.env.APP_ID}.sendbird.com`;
 
 class Sendbird {
-    //change marketplace image
-    constructMarkdownMarketPlaceMessage() {
-        return `![alt marketplace hero image](https://scout-poc.pages.dev/static/media/banner-renew.fa578f5b.png#hero) \n #### Black long dress \n ### $50`;
+    constructMarkdownMarketPlaceMessage(item) {
+        return `![alt marketplace hero image](${item.img}) \n #### ${item.title} \n ### ${item.price}`;
     }
 
     async sendUserMessage(markdownAppData, channelUrl) {
@@ -23,8 +22,8 @@ class Sendbird {
         let userMessageData = new SendbirdPlatformSdk.SendMessageData();
         let appData = {
             "sb_app": {
-                "name": "basic-chat-app",
-                "isDraft": true,
+                "name": "marketplace",
+                // "isDraft": true,
                 "ui": markdownAppData
             }
         }

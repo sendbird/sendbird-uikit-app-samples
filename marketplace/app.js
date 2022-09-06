@@ -21,6 +21,8 @@ app.post('/app', async (req, res) => {
 // The /start endpoint only exists for demo purposes. In a real world application these messages would be triggered by a customers existing backend system.
 app.post('/start', async (req, res) => {
     const channelUrl = req.body.channelUrl;
+    const item = req.body.item
+
     if (!channelUrl) {
         return res.status(400).send('channel url must be supplied');
 
@@ -30,7 +32,7 @@ app.post('/start', async (req, res) => {
         console.log(joinError);
         return res.status(500).send('failed to join');
     }
-    const appMessage = sendbird.constructMarkdownMarketPlaceMessage();
+    const appMessage = sendbird.constructMarkdownMarketPlaceMessage(item);
     const [sendResponse, sendError] = await sendbird.sendUserMessage(appMessage, channelUrl);
     if (sendError) {
         console.log(sendError);
