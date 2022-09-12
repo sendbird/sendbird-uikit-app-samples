@@ -12,10 +12,15 @@ gcChannelInstance.apiClient.basePath = `https://api-${process.env.APP_ID}.sendbi
 
 class Sendbird {
     constructMarkdownMarketPlaceMessage(item) {
-        return `![alt marketplace hero image](${item.img}) \n #### ${item.title} \n ### ${item.price}`;
+        return `![alt marketplace hero image](${item.img}#hero) \n #### ${item.title} \n ## ${item.price}`;
     }
 
-    async sendUserMessage(markdownAppData, channelUrl) {
+    constructMarkdownAvailableMessage(item) {
+        return `\n [button: Is this still available]()`;
+
+    }
+
+    async sendUserMessage(markdownAppData, channelUrl, sender, isDraft = false) {
         let apiToken = process.env.API_TOKEN;
 
         // bot needs to exist https://www.postman.com/sendbird/workspace/sendbird-platform-api/request/19408238-62360d3f-07f7-40ac-b2d0-13cd6b1591ea;
@@ -23,13 +28,13 @@ class Sendbird {
         let appData = {
             "sb_app": {
                 "name": "marketplace",
-                // "isDraft": true,
+                isDraft,
                 "ui": markdownAppData
             }
         }
         let channelType = 'group_channels';
         userMessageData.message = "Marketplace message";
-        userMessageData.user_id = "marketplace";
+        userMessageData.user_id = sender;
         userMessageData.messageType = 'MESG';
         userMessageData.data = JSON.stringify(appData);
         userMessageData.channel_url = channelUrl;
@@ -52,7 +57,7 @@ class Sendbird {
     async inviteUserToChannel(channelUrl) {
         const gcInviteAsMembersData = new SendbirdPlatformSdk.GcInviteAsMembersData();
         gcInviteAsMembersData.channel_url = channelUrl;
-        gcInviteAsMembersData.user_ids = ["marketplace"];
+        gcInviteAsMembersData.user_ids = ["matt"];
         const opts = {
             'gcInviteAsMembersData': gcInviteAsMembersData
         };
@@ -60,10 +65,27 @@ class Sendbird {
             const response = await gcChannelInstance.gcInviteAsMembers(process.env.API_TOKEN, channelUrl, opts)
             return [response, null];
         } catch (error) {
+            console.log(error);
             [null, error];
+        }
+    }
+
+    async deleteUserMessage(channelUrl, messageId) {
+        let channelType = "group_channels";
+        try {
+            await messageApi.deleteMessageById(
+                process.env.API_TOKEN,
+                channelType,
+                channelUrl,
+                messageId
+            );
+        } catch (e) {
+            console.log(e);
+            console.log("failed to send user message");
         }
     }
 
 }
 
 module.exports = Sendbird;
+
