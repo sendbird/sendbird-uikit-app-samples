@@ -43,7 +43,6 @@ app.post("/app", async (req, res) => {
     return res.status(400).send("channel url must be supplied");
   }
 
-  console.log("THE ID=", req.body.params.buttonId);
   if (req.body.trigger === "button" && req.body.params.buttonId === "Send") {
     const markdownAppData = sendbird.constructMarkdownAppWithoutButton(
       req.body.message,

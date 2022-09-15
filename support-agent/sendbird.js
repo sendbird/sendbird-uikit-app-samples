@@ -11,17 +11,20 @@ const gcChannelInstance = new SendbirdPlatformSdk.GroupChannelApi();
 gcChannelInstance.apiClient.basePath = `https://api-${process.env.APP_ID}.sendbird.com`;
 
 class Sendbird {
-    //pass in name of user
     constructMarkdownSupportMessage() {
-        return `#### Hey James. How can I help you today?`;
+        return `### Are you a new or existing customer: [button:New](id=1) [button:Existing](id=2)`;
+    }
+
+    constructMarkdownEndMessage() {
+        return `### End Conversation [button:End](id=3)`;
     }
 
     constructMarkdownRatingMessage() {
-        return `#### Let us know how we did with your Sushi Son order. How was the delivery: [button:Good]() [button:Bad]()`;
+        return `### How would you rate your support experience: [button:Good]() [button:Bad]()`;
     }
 
     constructMarkdownThankYouMessage() {
-        return `#### Thank you for your feedback!`;
+        return `### Thank you for your feedback!`;
     }
 
     async sendUserMessage(markdownAppData, channelUrl) {
@@ -31,13 +34,12 @@ class Sendbird {
         let userMessageData = new SendbirdPlatformSdk.SendMessageData();
         let appData = {
             "sb_app": {
-                "name": "basic-chat-app",
-                "isDraft": true,
+                "name": "support-agent",
                 "ui": markdownAppData
             }
         }
         let channelType = 'group_channels';
-        userMessageData.message = "support agent message";
+        userMessageData.message = "Support agent message";
         userMessageData.user_id = "agent";
         userMessageData.messageType = 'MESG';
         userMessageData.data = JSON.stringify(appData);
@@ -54,9 +56,40 @@ class Sendbird {
             console.log('failed to send user message');
             return [null, error];
         }
-
-
     }
+
+  async updateUserMessage(markdownAppData, messageId, channelUrl, message) {
+    const apiToken = process.env.API_TOKEN;
+    const updateMessageByIdData =
+      new SendbirdPlatformSdk.UpdateMessageByIdData();
+    const channelType = "group_channels";
+    let appData = {
+      "sb_app": {
+        "name": "support-agent",
+        "ui": markdownAppData,
+      },
+    };
+    updateMessageByIdData.message = message;
+    updateMessageByIdData.message_type = "MESG";
+    updateMessageByIdData.data = JSON.stringify(appData);
+
+    let opts = {
+      updateMessageByIdData: updateMessageByIdData,
+    };
+
+    try {
+      await messageApi.updateMessageById(
+        apiToken,
+        channelType,
+        channelUrl,
+        messageId,
+        opts
+      );
+    } catch (e) {
+      console.log(e);
+      console.log("failed to send user message");
+    }
+  }
 
     async inviteUserToChannel(channelUrl) {
         const gcInviteAsMembersData = new SendbirdPlatformSdk.GcInviteAsMembersData();
@@ -72,6 +105,21 @@ class Sendbird {
             [null, error];
         }
     }
+
+    async deleteUserMessage( channelUrl, messageId) {
+        let channelType = "group_channels";
+       try {
+         await messageApi.deleteMessageById(
+           apiToken,
+           channelType,
+           channelUrl,
+           messageId
+         );
+       } catch (e) {
+         console.log(e);
+         console.log("failed to send user message");
+       }
+     }
 
 }
 
