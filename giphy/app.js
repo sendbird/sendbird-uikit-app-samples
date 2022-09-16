@@ -61,7 +61,6 @@ app.post("/app", async (req, res) => {
 
   if (req.body.trigger === "button" && req.body.params.buttonId === "Shuffle") {
     let searchedInput = req.body.message;
-    console.log("SEARCHED INPUT=", req.body.message);
     const giphyResults = await giphy.fetchSearchResults(searchedInput);
     let giphySelected = await giphy.selectGiphy(giphyResults);
     finalGiphy = giphySelected;

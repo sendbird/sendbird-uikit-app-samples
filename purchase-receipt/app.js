@@ -31,7 +31,7 @@ app.post('/start', async (req, res) => {
     const markdownAppData = sendbird.constructMarkdownPurchaseMessage();
     const appData = {
         "sb_app": {
-            "name": "receipt",
+            "name": "purchase-receipt",
             "ui": markdownAppData
         }
     }

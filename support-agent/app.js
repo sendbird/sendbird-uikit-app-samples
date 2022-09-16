@@ -13,7 +13,7 @@ const sendbird = new Sendbird();
 // app functionality lives here. This endpoint listens for all app interaction e.g. slash commands and app button clicks
 app.post('/app', async (req, res) => {
       //Customer clicks New/Existing -> Deletes Message & triggers agent msg to send
-      console.log("in /app", req.body.params)
+      console.log("in /app", req.body)
     if (req.body.trigger === 'button' && req.body.params.buttonId === "New" ||req.body.params.buttonId === "Existing") {
         //Save this new/existing info for later?
         await sendbird
@@ -21,16 +21,20 @@ app.post('/app', async (req, res) => {
         .catch((err) => console.log("Cancel button error"));
 
         const agentFirstMessage = "Hi Michelle. Can you please provide your order number?"
-        const [sendResponse1, sendError1] = await sendbird.sendUserMessage(agentFirstMessage, channelUrl);
+        const [sendResponse1, sendError1] = await sendbird.sendUserMessage(agentFirstMessage, req.body.channelUrl);
 
         const endMessage = sendbird.constructMarkdownEndMessage();
-        const [sendResponse2, sendError2] = await sendbird.sendUserMessage(endMessage, channelUrl);
+        const [sendResponse2, sendError2] = await sendbird.sendUserMessage(endMessage, req.body.channelUrl);
         return res.sendStatus(200);
     }
 
-    if(req.body.trigger === 'button' && req.body.params.buttonId === "End"){
+    if(req.body.trigger === 'button' && req.body.params.buttonId === "End Conversation"){
+        const deleteEndConvoMessage =  await sendbird
+        .deleteUserMessage(req.body.channelUrl, req.body.messageId)
+        .catch((err) => console.log("Cancel button error"));
+
         const ratingMarkdown = sendbird.constructMarkdownRatingMessage();
-        const [sendResponse2, sendError2] = await sendbird.sendUserMessage(ratingMarkdown, channelUrl);
+        const [sendResponse2, sendError2] = await sendbird.sendUserMessage(ratingMarkdown, req.body.channelUrl);
         if (error) {
             console.log(error)
             return res.status(400).send('failed to send confirmation message');

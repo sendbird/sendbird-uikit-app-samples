@@ -10,13 +10,15 @@ messageApi.apiClient.basePath = `https://api-${process.env.APP_ID}.sendbird.com`
 const gcChannelInstance = new SendbirdPlatformSdk.GroupChannelApi();
 gcChannelInstance.apiClient.basePath = `https://api-${process.env.APP_ID}.sendbird.com`;
 
+let apiToken = process.env.API_TOKEN;
+
 class Sendbird {
     constructMarkdownSupportMessage() {
         return `### Are you a new or existing customer: [button:New](id=1) [button:Existing](id=2)`;
     }
 
     constructMarkdownEndMessage() {
-        return `### End Conversation [button:End](id=3)`;
+        return `[button:End Conversation](id=3)`;
     }
 
     constructMarkdownRatingMessage() {
@@ -42,7 +44,7 @@ class Sendbird {
         userMessageData.message = "Support agent message";
         userMessageData.user_id = "agent";
         userMessageData.messageType = 'MESG';
-        userMessageData.data = JSON.stringify(appData);
+        userMessageData.data = appData && JSON.stringify(appData);
         userMessageData.channel_url = channelUrl;
         let opts = {
             'sendMessageData': userMessageData
