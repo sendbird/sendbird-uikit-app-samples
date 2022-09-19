@@ -16,7 +16,7 @@ class Sendbird {
 |   |   |
 | - | - |
 ### Cleaning Appointment Confirmed
-| **Star Wars** | PG-13
+**Star Wars** | PG-13
 ### 10/23/2022
 ### Sun 10:45 am - 11:45 am
 &nbsp;
@@ -27,7 +27,7 @@ Visa 5454
 ***
 |    |       |
 | :- |    -: |
-| Total | # $46.00 |
+| Total | $46.00 |
         `;
         return calendarConfirmationMarkdown;
     }

@@ -12,8 +12,6 @@ const sendbird = new Sendbird();
 
 // app functionality lives here. This endpoint listens for all app interaction e.g. slash commands and app button clicks
 app.post('/app', async (req, res) => {
-      //Customer clicks New/Existing -> Deletes Message & triggers agent msg to send
-      console.log("in /app", req.body)
     if (req.body.trigger === 'button' && req.body.params.buttonId === "New" ||req.body.params.buttonId === "Existing") {
         //Save this new/existing info for later?
         await sendbird
@@ -43,8 +41,8 @@ app.post('/app', async (req, res) => {
     }
 
     if(req.body.trigger === 'button' && req.body.params.buttonId === "Good" || req.body.params.buttonId === "Bad" ){
-        const thankYouMarkdown = sendbird.constructMarkdownThankYouMessage();
-        const [sendResponse2, sendError2] = await sendbird.updateUserMessage(thankYouMarkdown, req.body.messageId, req.body.channelUrl, req.body.message);
+        const thankYouMessage = "Thank you for your feedback!"
+        const [sendResponse2, sendError2] = await sendbird.updateUserMessage(thankYouMessage, req.body.messageId, req.body.channelUrl, req.body.message);
         if (error) {
             console.log(error)
             return res.status(400).send('failed to send confirmation message');

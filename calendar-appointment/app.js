@@ -13,10 +13,11 @@ const sendbird = new Sendbird();
 // app functionality lives here. This endpoint listens for all app interaction e.g. slash commands and app button clicks
 app.post("/app", async (req, res) => {
   //listen for button message
-
+  console.log("in /app", req.body)
 });
 
 app.post("/start", async (req, res) => {
+  console.log("in /start", req.body)
   const channelUrl = req.body.channelUrl;
   if (!channelUrl) {
     return res.status(400).send("channel url must be supplied");
