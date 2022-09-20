@@ -17,23 +17,17 @@ app.post("/app", async (req, res) => {
 });
 
 app.post("/start", async (req, res) => {
-  console.log("in /start", req.body)
   const channelUrl = req.body.channelUrl;
   if (!channelUrl) {
     return res.status(400).send("channel url must be supplied");
   }
-  const [joinResponse, joinError] = await sendbird.inviteUserToChannel(
-    channelUrl
-  );
+  const [joinResponse, joinError] = await sendbird.inviteUserToChannel(channelUrl);
   if (joinError) {
     console.log(joinError);
     return res.status(500).send("failed to join");
   }
   const appMessage = sendbird.constructMarkdownCalendarSuccessMessage();
-  const [sendResponse, sendError] = await sendbird.sendUserMessage(
-    appMessage,
-    channelUrl
-  );
+  const [sendResponse, sendError] = await sendbird.sendUserMessage( appMessage,channelUrl);
   if (sendError) {
     console.log(sendError);
     return res.status(500).send("failed to send");

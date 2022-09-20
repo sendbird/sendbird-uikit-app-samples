@@ -15,19 +15,13 @@ class Sendbird {
         const calendarConfirmationMarkdown = `
 |   |   |
 | - | - |
-### Cleaning Appointment Confirmed
-**Star Wars** | PG-13
-### 10/23/2022
-### Sun 10:45 am - 11:45 am
-&nbsp;
+## Cleaning Appointment Confirmed
 
-### Paid with
-Visa 5454
+### 10/23/2022
+Sun 10:45 am - 11:45 am
 &nbsp;
 ***
-|    |       |
-| :- |    -: |
-| Total | $46.00 |
+Total: $46.00
         `;
         return calendarConfirmationMarkdown;
     }
@@ -74,7 +68,7 @@ Visa 5454
             const response = await gcChannelInstance.gcInviteAsMembers(process.env.API_TOKEN, channelUrl, opts)
             return [response, null];
         } catch (error) {
-            [null, error];
+            return [null, error];
         }
     }
 
