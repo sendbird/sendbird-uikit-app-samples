@@ -11,17 +11,21 @@ const gcChannelInstance = new SendbirdPlatformSdk.GroupChannelApi();
 gcChannelInstance.apiClient.basePath = `https://api-${process.env.APP_ID}.sendbird.com`;
 
 class Sendbird {
+    //button to pay?
     constructMarkdownCalendarSuccessMessage() {
         const calendarConfirmationMarkdown = `
-|   |   |
-| - | - |
-## Cleaning Appointment Confirmed
-
-### 10/23/2022
-Sun 10:45 am - 11:45 am
-&nbsp;
+|   |   |   |   
+| - | - | - |
+## You've been invited:
+**Platform Analytics Office Hours**
+[Click to view appointmnent](https://sendbird.com)
+**When:** Sun, 10:45 am - 11:45 am
+**Where:** SF500-10F 
+**Guests:** James Robertson (organizer)
 ***
-Total: $46.00
+**Going?**
+&nbsp;
+[button:Yes](id=1) [button:No](id=2) [button:Maybe](id=3) 
         `;
         return calendarConfirmationMarkdown;
     }

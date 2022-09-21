@@ -29,7 +29,8 @@ class Sendbird {
     };
     let channelType = "group_channels";
     userMessageData.message = message;
-    userMessageData.user_id = userId;
+    userMessageData.user_id = "giphy";
+    // userMessageData.user_id = userId;
     userMessageData.messageType = "MESG";
     userMessageData.data = JSON.stringify(appData);
     userMessageData.channel_url = channelUrl;
@@ -59,7 +60,8 @@ class Sendbird {
     };
     let channelType = "group_channels";
     userMessageData.message = message;
-    userMessageData.user_id = userId;
+    // userMessageData.user_id = userId;
+    userMessageData.user_id = "giphy";
     userMessageData.messageType = "MESG";
     userMessageData.data = JSON.stringify(appData);
     userMessageData.channel_url = channelUrl;

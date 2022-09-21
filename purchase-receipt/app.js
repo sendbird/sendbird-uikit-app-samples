@@ -27,24 +27,13 @@ app.post('/start', async (req, res) => {
         console.log(joinError);
         return res.status(500).send('failed to join');
     }
-
     const markdownAppData = sendbird.constructMarkdownPurchaseMessage();
-    const appData = {
-        "sb_app": {
-            "name": "purchase-receipt",
-            "ui": markdownAppData
-        }
-    }
-    const [sendResponse, sendError] = await sendbird.sendUserMessage(appData, "Purchase receipt message", channelUrl);
-
-
+    const [sendResponse, sendError] = await sendbird.sendUserMessage(markdownAppData, channelUrl);
     if (sendError) {
         console.log(sendError);
         return res.status(500).send('failed to send');
     }
     return res.sendStatus(200);
-
-    
 });
 
 // just for local testing purposes

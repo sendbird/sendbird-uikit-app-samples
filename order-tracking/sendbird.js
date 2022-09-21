@@ -117,7 +117,7 @@ Visa 5454
             const response = await gcChannelInstance.gcInviteAsMembers(process.env.API_TOKEN, channelUrl, opts)
             return [response, null];
         } catch (error) {
-            [null, error];
+            return [null, error];
         }
     }
 

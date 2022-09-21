@@ -27,7 +27,7 @@ app.post("/start", async (req, res) => {
     return res.status(500).send("failed to join");
   }
   const appMessage = sendbird.constructMarkdownCalendarSuccessMessage();
-  const [sendResponse, sendError] = await sendbird.sendUserMessage( appMessage,channelUrl);
+  const [sendResponse, sendError] = await sendbird.sendUserMessage(appMessage, channelUrl);
   if (sendError) {
     console.log(sendError);
     return res.status(500).send("failed to send");

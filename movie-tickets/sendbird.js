@@ -11,25 +11,20 @@ const gcChannelInstance = new SendbirdPlatformSdk.GroupChannelApi();
 gcChannelInstance.apiClient.basePath = `https://api-${process.env.APP_ID}.sendbird.com`;
 
 class Sendbird {
-    constructMarkdownMovieSuccessMessage() {
+    constructMarkdownMovieSuccessMessage() {        
         const movieConfirmationMarkdown = `
 |   |   |
 | - | - |
-### Movie Ticket
-| **Star Wars** | PG-13
-### 9/14/2022
-### Wed 07:30 pm
-**Adult**
+| ![qr](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1200px-QR_code_for_mobile_English_Wikipedia.svg.png) | - |
+| **Star Wars** | - |
+## 9/14/2022
+## Wed 07:30 pm
+Adult
 **Theatre 3**
-&nbsp;
-
-### Paid with
-Visa 5454
-&nbsp;
 ***
 |    |       |
 | :- |    -: |
-| Total | # $18.00 |
+| # Total | # $18.00 |
         `;
         return movieConfirmationMarkdown;
     }
@@ -78,7 +73,7 @@ Visa 5454
             const response = await gcChannelInstance.gcInviteAsMembers(process.env.API_TOKEN, channelUrl, opts)
             return [response, null];
         } catch (error) {
-            [null, error];
+            return [null, error];
         }
     }
 
