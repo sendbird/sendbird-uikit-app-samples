@@ -13,35 +13,48 @@ gcChannelInstance.apiClient.basePath = `https://api-${process.env.APP_ID}.sendbi
 class Sendbird {
     constructMarkdownOrderReceiptMessage() {
         const orderTrackingMarkdown = `
-        |   |   |
-        | - | - |
-        | ![sushi](https://scout-poc.pages.dev/static/media/sushi.3245adb1.jpg) | **Sushi Son Dinner set-A with coke** |
-        ### Paid with
-        Visa 5454
-        &nbsp;
-        ### Ship to
-        1995 Nassau Dr., Vancouver, BC V5P 3Z2
-        &nbsp;
-        ***
-        |    |       |
-        | :- |    -: |
-        | Total | # $60 |
+|   |   |
+| - | - |
+| ![sushi](https://scout-poc.pages.dev/static/media/sushi.3245adb1.jpg) | **Sushi Son Dinner set-A with coke** |
+### Paid with
+Visa 5454
+&nbsp;
+### Ship to
+1995 Nassau Dr., Vancouver, BC V5P 3Z2
+&nbsp;
+***
+|    |       |
+| :- |    -: |
+| Total | # $60 |
         
         `;
         return orderTrackingMarkdown;
     }
 
     constructMarkdownOrderCompleteMessage() {
-        return `#### Your order is now on its way! Should arrive at 6:30pm.`;
+        var time = new Date();
+        var hours = time.getHours()
+        console.log('hour=', hours)
+        if (hours > 12) {
+          hours -= 12;
+      } else if (hours === 0) {
+         hours = 12;
+      } else if (hours === 12) {
+        hours = 1;
+      }
+      var minute = 15;
+      var time = [
+        hours + 1,
+        ':',
+        minute
+      ].join('');
+        return `#### Your order is now on its way! Should arrive at ${time}.`;
     }
 
     constructMarkdownSuccessfulDeliveryMessage() {
         return `
-        |   |   |
-        | - | - |
-        ![alt delivery hero image](https://scout-poc.pages.dev/static/media/banner-renew.fa578f5b.png#hero)
-        #### Thank you for using ShareSend Delivery. Your order has arrived! Jane has dropped it off at the front door.
-        
+![alt delivery hero image](https://media.bizj.us/view/img/11965831/gettyimages-1280235730*540xx2121-1193-0-111.jpg)
+#### Thank you for using ShareSend Delivery. Your order has arrived! Jane has dropped it off at the front door.
         `;
     }
 
@@ -91,7 +104,7 @@ class Sendbird {
         const channelType = "group_channels";
         let appData = {
           "sb_app": {
-            "name": "support-agent",
+            "name": "order-tracking",
             "ui": markdownAppData,
           },
         };

@@ -12,8 +12,20 @@ const sendbird = new Sendbird();
 
 // app functionality lives here. This endpoint listens for all app interaction e.g. slash commands and app button clicks
 app.post("/app", async (req, res) => {
-  //listen for button message
-  // push out success
+  if(req.body.trigger === 'button' && req.body.params.buttonId === 'Good' || req.body.params.buttonId === 'Bad' ){
+  const appMessage = sendbird.constructMarkdownThankYouMessage();
+  const [sendResponse2, sendError2] = await sendbird.updateUserMessage(
+    appMessage,
+    req.body.messageId,
+    req.body.channelUrl,
+    req.body.message
+  );
+  if (error) {
+    console.log(error);
+    return res.status(400).send("failed to send confirmation message");
+  }
+  return res.sendStatus(200);
+}
 });
 
 app.post("/start", async (req, res) => {
@@ -28,6 +40,7 @@ app.post("/start", async (req, res) => {
     console.log(joinError);
     return res.status(500).send("failed to join");
   }
+
   const appMessage = sendbird.constructMarkdownOrderReceiptMessage();
   const [sendResponse, sendError] = await sendbird.sendUserMessage(
     appMessage,
@@ -37,11 +50,11 @@ app.post("/start", async (req, res) => {
     console.log(sendError);
     return res.status(500).send("failed to send");
   }
-
+  
   //send order confirmation message after certain time
-  setTimeout(function () {
+  setTimeout(async (req, res) =>  {
     const appMessage = sendbird.constructMarkdownOrderCompleteMessage();
-    const [sendResponse, sendError] = sendbird.sendUserMessage(
+    const [sendResponse, sendError] = await sendbird.sendUserMessage(
       appMessage,
       channelUrl
     );
@@ -49,13 +62,12 @@ app.post("/start", async (req, res) => {
       console.log(sendError);
       return res.status(500).send("failed to send");
     }
-    return res.sendStatus(200);
   }, 4000);
 
   //send image delivery drop off message after certain time
-  setTimeout(function () {
+  setTimeout(async (req, res) => {
     const appMessage = sendbird.constructMarkdownSuccessfulDeliveryMessage();
-    const [sendResponse, sendError] = sendbird.sendUserMessage(
+    const [sendResponse, sendError] = await sendbird.sendUserMessage(
       appMessage,
       channelUrl
     );
@@ -63,13 +75,13 @@ app.post("/start", async (req, res) => {
       console.log(sendError);
       return res.status(500).send("failed to send");
     }
-    return res.sendStatus(200);
-  }, 1000);
+  
+  }, 12000);
 
   //send rating message after certain time
-  setTimeout(function () {
+  setTimeout(async (req, res) =>  {
     const appMessage = sendbird.constructMarkdownRatingMessage();
-    const [sendResponse, sendError] = sendbird.sendUserMessage(
+    const [sendResponse, sendError] = await sendbird.sendUserMessage(
       appMessage,
       channelUrl
     );
@@ -77,25 +89,9 @@ app.post("/start", async (req, res) => {
       console.log(sendError);
       return res.status(500).send("failed to send");
     }
-    return res.sendStatus(200);
-  }, 1600);
 
-  //on click of rating, message updated with thank you feedback message
-  if (req.body.trigger === "button") {
-    const appMessage = sendbird.constructMarkdownThankYouMessage();
-    const [sendResponse2, sendError2] = await sendbird.updateUserMessage(
-      appMessage,
-      req.body.messageId,
-      req.body.channelUrl,
-      req.body.message
-    );
-    if (error) {
-      console.log(error);
-      return res.status(400).send("failed to send confirmation message");
-    }
-    return res.sendStatus(200);
-  }
-
+  }, 18000);
+  
   return res.sendStatus(200);
 });
 
