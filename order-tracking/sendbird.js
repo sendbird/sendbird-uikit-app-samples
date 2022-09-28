@@ -11,27 +11,6 @@ const gcChannelInstance = new SendbirdPlatformSdk.GroupChannelApi();
 gcChannelInstance.apiClient.basePath = `https://api-${process.env.APP_ID}.sendbird.com`;
 
 class Sendbird {
-    constructMarkdownDeliverySuccessMessage() {
-        const orderTrackingMarkdown = `
-|   |   |
-| - | - |
-| ![sushi](https://scout-poc.pages.dev/static/media/sushi.3245adb1.jpg) | **Sushi Son Dinner set-A with coke** |
-### Paid with
-Visa 5454
-&nbsp;
-### Ship to
-1995 Nassau Dr., Vancouver, BC V5P 3Z2
-&nbsp;
-***
-|    |       |
-| :- |    -: |
-| Total | # $60 |
-        
-        `;
-        return orderTrackingMarkdown;
-        // return `#### Your order has been received. Carla is now preparing your food.`;
-    }
-
     constructMarkdownOrderReceiptMessage() {
         const orderTrackingMarkdown = `
         |   |   |
@@ -56,13 +35,14 @@ Visa 5454
         return `#### Your order is now on its way! Should arrive at 6:30pm.`;
     }
 
-    //need drop off image
-    constructMarkdownImageDeliveryMessage() {
-        return `![alt delivery hero image](https://scout-poc.pages.dev/static/media/banner-renew.fa578f5b.png#hero)`;
-    }
-
     constructMarkdownSuccessfulDeliveryMessage() {
-        return `#### Thank you for using ShareSend Delivery. Your order has arrived! Jane has dropped it off at the front door.`;
+        return `
+        |   |   |
+        | - | - |
+        ![alt delivery hero image](https://scout-poc.pages.dev/static/media/banner-renew.fa578f5b.png#hero)
+        #### Thank you for using ShareSend Delivery. Your order has arrived! Jane has dropped it off at the front door.
+        
+        `;
     }
 
     constructMarkdownRatingMessage() {
@@ -102,9 +82,40 @@ Visa 5454
             console.log('failed to send user message');
             return [null, error];
         }
-
-
     }
+
+    async updateUserMessage(markdownAppData, messageId, channelUrl, message) {
+        const apiToken = process.env.API_TOKEN;
+        const updateMessageByIdData =
+          new SendbirdPlatformSdk.UpdateMessageByIdData();
+        const channelType = "group_channels";
+        let appData = {
+          "sb_app": {
+            "name": "support-agent",
+            "ui": markdownAppData,
+          },
+        };
+        updateMessageByIdData.message = message;
+        updateMessageByIdData.message_type = "MESG";
+        updateMessageByIdData.data = JSON.stringify(appData);
+    
+        let opts = {
+          updateMessageByIdData: updateMessageByIdData,
+        };
+    
+        try {
+          await messageApi.updateMessageById(
+            apiToken,
+            channelType,
+            channelUrl,
+            messageId,
+            opts
+          );
+        } catch (e) {
+          console.log(e);
+          console.log("failed to send user message");
+        }
+      }
 
     async inviteUserToChannel(channelUrl) {
         const gcInviteAsMembersData = new SendbirdPlatformSdk.GcInviteAsMembersData();
