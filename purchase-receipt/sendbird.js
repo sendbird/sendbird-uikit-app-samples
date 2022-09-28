@@ -27,25 +27,6 @@ class Sendbird {
 
         `;
         return purchaseReceiptMarkdown;
-// const purchaseReceiptMarkdown = `
-// |         |   |      | 
-// | :------ | - | ---: |
-// | # Order 6593023 | - | - |
-// | ![handbag](https://clutchtotebags.com/wp-content/uploads/2018/04/The-Circle-Bag-Clutch-Leather-HandBag-Crossbody-Leather-Bags-for-Women-Shoulder-bag-leather-with-circle-handle-zipper-BLACK.jpg) | **Black Handbag** | # $150 |
-// ### Paid with
-// Visa 5454
-// &nbsp;
-// ### Ship to
-// 1995 Nassau Dr., Vancouver, BC V5P 3Z2
-// &nbsp;
-// ***
-// |    |   |       |
-// | :- | - |    -: |
-// | # Total | # $150 |
-
-//         `;
-//         return purchaseReceiptMarkdown;
-
     }
 
     async sendUserMessage(markdownAppData, channelUrl) {

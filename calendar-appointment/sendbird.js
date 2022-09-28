@@ -11,7 +11,6 @@ const gcChannelInstance = new SendbirdPlatformSdk.GroupChannelApi();
 gcChannelInstance.apiClient.basePath = `https://api-${process.env.APP_ID}.sendbird.com`;
 
 class Sendbird {
-    //button to pay?
     constructMarkdownCalendarSuccessMessage() {
         const calendarConfirmationMarkdown = `
 |   |   |   |   
