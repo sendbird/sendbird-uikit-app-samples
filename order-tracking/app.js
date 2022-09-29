@@ -12,7 +12,7 @@ const sendbird = new Sendbird();
 
 // app functionality lives here. This endpoint listens for all app interaction e.g. slash commands and app button clicks
 app.post("/app", async (req, res) => {
-  if(req.body.trigger === 'button' && req.body.params.buttonId === 'Good' || req.body.params.buttonId === 'Bad' ){
+  if(req.body.trigger === 'button'){
   const appMessage = sendbird.constructMarkdownThankYouMessage();
   const [sendResponse2, sendError2] = await sendbird.updateUserMessage(
     appMessage,
@@ -76,7 +76,7 @@ app.post("/start", async (req, res) => {
       return res.status(500).send("failed to send");
     }
   
-  }, 12000);
+  }, 8000);
 
   //send rating message after certain time
   setTimeout(async (req, res) =>  {
@@ -90,7 +90,7 @@ app.post("/start", async (req, res) => {
       return res.status(500).send("failed to send");
     }
 
-  }, 18000);
+  }, 12000);
   
   return res.sendStatus(200);
 });

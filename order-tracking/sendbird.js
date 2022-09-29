@@ -34,7 +34,6 @@ Visa 5454
     constructMarkdownOrderCompleteMessage() {
         var time = new Date();
         var hours = time.getHours()
-        console.log('hour=', hours)
         if (hours > 12) {
           hours -= 12;
       } else if (hours === 0) {
@@ -53,13 +52,13 @@ Visa 5454
 
     constructMarkdownSuccessfulDeliveryMessage() {
         return `
-![alt delivery hero image](https://media.bizj.us/view/img/11965831/gettyimages-1280235730*540xx2121-1193-0-111.jpg)
+![alt delivery hero image](https://media.bizj.us/view/img/11965831/gettyimages-1280235730*540xx2121-1193-0-111.jpg#hero)
 #### Thank you for using ShareSend Delivery. Your order has arrived! Jane has dropped it off at the front door.
         `;
     }
 
     constructMarkdownRatingMessage() {
-        return `#### Let us know how we did with your Sushi Son order. How was the delivery: [button:Good]() [button:Bad]()`;
+        return `#### Let us know how we did with your Sushi Son order. How was the delivery: [button: 👍 Good]() [button: 👎 Bad]()`;
     }
 
     constructMarkdownThankYouMessage() {
@@ -103,9 +102,9 @@ Visa 5454
           new SendbirdPlatformSdk.UpdateMessageByIdData();
         const channelType = "group_channels";
         let appData = {
-          "sb_app": {
-            "name": "order-tracking",
-            "ui": markdownAppData,
+          sb_app: {
+            name: "order-tracking",
+            ui: markdownAppData,
           },
         };
         updateMessageByIdData.message = message;
