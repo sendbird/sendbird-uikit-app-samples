@@ -29,6 +29,16 @@ class Sendbird {
         return calendarConfirmationMarkdown;
     }
 
+    constructMarkdownConfirmationYesMessage() {
+        const confirmationMarkdown = `#### You have confirmed your attendance`;
+        return confirmationMarkdown;
+    }
+
+    constructMarkdownConfirmationNoMessage() {
+        const confirmationMarkdown = `#### You have declined your attendance`;
+        return confirmationMarkdown;
+    }
+
     async sendUserMessage(markdownAppData, channelUrl) {
         let apiToken = process.env.API_TOKEN;
 

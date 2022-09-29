@@ -15,7 +15,7 @@ class Sendbird {
     return `${message} \n ![giphy](${giphy.images.downsized_medium.url}) \n `;
   }
 
-  async sendUserMessage(markdownAppData, userId, channelUrl, message) {
+  async sendUserMessage(markdownAppData, channelUrl, message) {
     let apiToken = process.env.API_TOKEN;
     // bot needs to exist https://www.postman.com/sendbird/workspace/sendbird-platform-api/request/19408238-62360d3f-07f7-40ac-b2d0-13cd6b1591ea;
     let userMessageData = new SendbirdPlatformSdk.SendMessageData();
@@ -30,7 +30,6 @@ class Sendbird {
     let channelType = "group_channels";
     userMessageData.message = message;
     userMessageData.user_id = "giphy";
-    // userMessageData.user_id = userId;
     userMessageData.messageType = "MESG";
     userMessageData.data = JSON.stringify(appData);
     userMessageData.channel_url = channelUrl;
@@ -60,7 +59,6 @@ class Sendbird {
     };
     let channelType = "group_channels";
     userMessageData.message = message;
-    // userMessageData.user_id = userId;
     userMessageData.user_id = "giphy";
     userMessageData.messageType = "MESG";
     userMessageData.data = JSON.stringify(appData);

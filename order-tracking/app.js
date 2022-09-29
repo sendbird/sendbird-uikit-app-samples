@@ -51,7 +51,6 @@ app.post("/start", async (req, res) => {
     return res.status(500).send("failed to send");
   }
   
-  //send order confirmation message after certain time
   setTimeout(async (req, res) =>  {
     const appMessage = sendbird.constructMarkdownOrderCompleteMessage();
     const [sendResponse, sendError] = await sendbird.sendUserMessage(
@@ -64,7 +63,6 @@ app.post("/start", async (req, res) => {
     }
   }, 4000);
 
-  //send image delivery drop off message after certain time
   setTimeout(async (req, res) => {
     const appMessage = sendbird.constructMarkdownSuccessfulDeliveryMessage();
     const [sendResponse, sendError] = await sendbird.sendUserMessage(
@@ -78,7 +76,6 @@ app.post("/start", async (req, res) => {
   
   }, 8000);
 
-  //send rating message after certain time
   setTimeout(async (req, res) =>  {
     const appMessage = sendbird.constructMarkdownRatingMessage();
     const [sendResponse, sendError] = await sendbird.sendUserMessage(
@@ -95,7 +92,6 @@ app.post("/start", async (req, res) => {
   return res.sendStatus(200);
 });
 
-// just for local testing purposes
 app.get("/status", (req, res) => {
   res.send(200);
 });

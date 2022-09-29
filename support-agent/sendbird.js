@@ -22,13 +22,13 @@ class Sendbird {
     }
 
     constructMarkdownRatingMessage() {
-        return `### How would you rate your support experience: [button:Good]() [button:Bad]()`;
+        return `### How would you rate your support experience: [button: 👍 Good]() [button: 👎 Bad]()`;
     }
 
     constructMarkdownThankYouMessage() {
         return `### Thank you for your feedback!`;
     }
-
+    
     async sendUserMessage(markdownAppData, channelUrl) {
         let apiToken = process.env.API_TOKEN;
 

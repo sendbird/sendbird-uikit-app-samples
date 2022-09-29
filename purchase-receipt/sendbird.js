@@ -18,8 +18,9 @@ class Sendbird {
 | - | - | - |
 | ![handbag](https://clutchtotebags.com/wp-content/uploads/2018/04/The-Circle-Bag-Clutch-Leather-HandBag-Crossbody-Leather-Bags-for-Women-Shoulder-bag-leather-with-circle-handle-zipper-BLACK.jpg) | Black Handbag | **$89.99** |
 | ![shoes](https://parade.com/.image/t_share/MTkxNDM4OTM1NDU1NDQyNDY1/sam-edelman-britten-boot.jpg) | Beige Boots | **$45.00** |
-### Discount
--$14.99
+|    |       |
+| :- |    -: |
+| Discount | **-$14.99** |
 ***
 |    |       |
 | :- |    -: |

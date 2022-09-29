@@ -13,14 +13,13 @@ gcChannelInstance.apiClient.basePath = `https://api-${process.env.APP_ID}.sendbi
 class Sendbird {
     constructMarkdownMovieSuccessMessage() {        
         const movieConfirmationMarkdown = `
+![qr](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1200px-QR_code_for_mobile_English_Wikipedia.svg.png) **Star Wars**
 |   |   |
 | - | - |
-| ![qr](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1200px-QR_code_for_mobile_English_Wikipedia.svg.png) | - |
-| **Star Wars** | - |
-## 9/14/2022
-## Wed 07:30 pm
-Adult
-**Theatre 3**
+| Date | Time |
+| # Oct 4 2022 | # 12:00pm |
+| Theatre | Seats |
+| # 4 | # F15, F16 |
 ***
 |    |       |
 | :- |    -: |

@@ -12,6 +12,7 @@ const sendbird = new Sendbird();
 
 // app functionality lives here. This endpoint listens for all app interaction e.g. slash commands and app button clicks
 app.post('/app', async (req, res) => {
+    console.log('params=', req.body.params)
     if (req.body.trigger === 'button' && req.body.params.buttonId === "New" ||req.body.params.buttonId === "Existing") {
         //Save this new/existing info for later?
         await sendbird
@@ -40,8 +41,8 @@ app.post('/app', async (req, res) => {
         return res.sendStatus(200);
     }
 
-    if(req.body.trigger === 'button' && req.body.params.buttonId === "Good" || req.body.params.buttonId === "Bad" ){
-        const thankYouMessage = "Thank you for your feedback!"
+    if(req.body.trigger === 'button' && req.body.params.buttonId === " 👍 Good" || req.body.params.buttonId === " 👎 Bad" ){
+        const thankYouMessage = 'Thank you for your feedback!'
         const [sendResponse2, sendError2] = await sendbird.updateUserMessage(thankYouMessage, req.body.messageId, req.body.channelUrl, req.body.message);
         if (error) {
             console.log(error)

@@ -15,29 +15,6 @@ app.use(express.static("public"));
 let finalGiphy;
 
 app.post("/app", async (req, res) => {
-  if (req.body.trigger === "command") {
-    let searchedInput = req.body.params;
-    const giphyResults = await giphy.fetchSearchResults(searchedInput);
-
-    let giphySelected = await giphy.selectGiphy(giphyResults);
-    finalGiphy = giphySelected;
-    const appMessage = sendbird.constructMarkdownAppWithButton(
-      req.body.params.commandInput,
-      giphySelected
-    );
-
-    await sendbird
-      .sendUserMessage(
-        appMessage,
-        req.body.userId,
-        req.body.channelUrl,
-        req.body.params.commandInput
-      )
-      .catch((err) => console.log("sendUserMessage error"));
-
-    return res.sendStatus(200);
-  }
-
   const channelUrl = req.body.channelUrl;
   if (!channelUrl) {
     return res.status(400).send("channel url must be supplied");
@@ -86,6 +63,47 @@ app.post("/app", async (req, res) => {
     return res.sendStatus(200);
   }
 });
+
+app.post("/start", async (req, res) => {
+  const channelUrl = req.body.channelUrl;
+  if (!channelUrl) {
+    return res.status(400).send("channel url must be supplied");
+  }
+  const [joinResponse, joinError] = await sendbird.inviteUserToChannel(
+    channelUrl
+  );
+  if (joinError) {
+    console.log(joinError);
+    return res.status(500).send("failed to join");
+  }
+
+  //req.body.params;
+  let searchedInput = "congratulations"
+  const giphyResults = await giphy.fetchSearchResults(searchedInput);
+  let giphySelected = await giphy.selectGiphy(giphyResults);
+  finalGiphy = giphySelected;
+  const appMessage = sendbird.constructMarkdownAppWithButton(
+    // req.body.params.commandInput,
+    searchedInput,
+    giphySelected
+  );
+
+  const [sendResponse, sendError] = await sendbird
+    .sendUserMessage(
+      appMessage,
+      req.body.channelUrl,
+      // req.body.params.commandInput
+      searchedInput
+    )
+
+  if (sendError) {
+    console.log(sendError);
+    return res.status(500).send("failed to send");
+  }
+  
+  return res.sendStatus(200);
+});
+
 
 app.get("/status", (req, res) => {
   res.send(200);
