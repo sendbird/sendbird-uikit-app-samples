@@ -25,4 +25,4 @@ proxy_pass         http://127.0.0.1:5000/{port};
 
 ## Restart nginx
 
-sudo service nginx restart
+`sudo service nginx restart`
