@@ -13,11 +13,11 @@ const sendbird = new Sendbird();
 // app functionality lives here. This endpoint listens for all app interaction e.g. slash commands and app button clicks
 app.post('/app', async (req, res) => {
     console.log('params=', req.body.params)
-    if (req.body.trigger === 'button' && req.body.params.buttonId === "New" ||req.body.params.buttonId === "Existing") {
+    if (req.body.trigger === 'button' && req.body.params.buttonId === "New" || req.body.params.buttonId === "Existing") {
         //Save this new/existing info for later?
         await sendbird
-        .deleteUserMessage(req.body.channelUrl, req.body.messageId)
-        .catch((err) => console.log("Cancel button error"));
+            .deleteUserMessage(req.body.channelUrl, req.body.messageId)
+            .catch((err) => console.log("Cancel button error"));
 
         const agentFirstMessage = "Hi Michelle. Can you please provide your order number?"
         const [sendResponse1, sendError1] = await sendbird.sendUserMessage(agentFirstMessage, req.body.channelUrl);
@@ -27,27 +27,24 @@ app.post('/app', async (req, res) => {
         return res.sendStatus(200);
     }
 
-    if(req.body.trigger === 'button' && req.body.params.buttonId === "End Conversation"){
-        const deleteEndConvoMessage =  await sendbird
-        .deleteUserMessage(req.body.channelUrl, req.body.messageId)
-        .catch((err) => console.log("Cancel button error"));
+    if (req.body.trigger === 'button' && req.body.params.buttonId === "End Conversation") {
+        const deleteEndConvoMessage = await sendbird
+            .deleteUserMessage(req.body.channelUrl, req.body.messageId)
+            .catch((err) => console.log("Cancel button error"));
 
         const ratingMarkdown = sendbird.constructMarkdownRatingMessage();
         const [sendResponse2, sendError2] = await sendbird.sendUserMessage(ratingMarkdown, req.body.channelUrl);
-        if (error) {
-            console.log(error)
+        if (sendError2) {
+            console.log(sendError2)
             return res.status(400).send('failed to send confirmation message');
         }
         return res.sendStatus(200);
     }
 
-    if(req.body.trigger === 'button' && req.body.params.buttonId === " 👍 Good" || req.body.params.buttonId === " 👎 Bad" ){
+    if (req.body.trigger === 'button' && req.body.params.buttonId === " 👍 Good" || req.body.params.buttonId === " 👎 Bad") {
         const thankYouMessage = 'Thank you for your feedback!'
-        const [sendResponse2, sendError2] = await sendbird.updateUserMessage(thankYouMessage, req.body.messageId, req.body.channelUrl, req.body.message);
-        if (error) {
-            console.log(error)
-            return res.status(400).send('failed to send confirmation message');
-        }
+        await sendbird.updateUserMessage(thankYouMessage, req.body.messageId, req.body.channelUrl, req.body.message);
+
         return res.sendStatus(200);
     }
 });
